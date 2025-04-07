@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Import reset first */
+@import './styles/reset.scss';
+
+/* Then other styles */
+@import './styles/variables.scss';
+@import './styles/global.scss';
+@import './styles/layout.scss';
+@import './styles/components.scss';
+@import './styles/animations.scss';
+@import './styles/utilities.scss';
