@@ -26,7 +26,7 @@
   .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 2.5rem; /* This is a much larger gap */
+    gap: 2.5rem;
   }
   
   .btn-large {
@@ -300,5 +300,42 @@
     .footer-content {
       grid-template-columns: 1fr;
       gap: var(--spacing-6);
+    }
+  }
+
+  .diagonal-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px,
+      transparent 30px
+    );
+    background-size: 200% 200%;
+    animation: moveLines 60s linear infinite;
+  }
+  
+  @keyframes moveLines {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+  .typing-cursor {
+    display: inline-block;
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes blink {
+    from, to {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
     }
   }
