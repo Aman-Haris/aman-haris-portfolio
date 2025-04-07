@@ -22,13 +22,44 @@
     box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
     color: var(--color-white);
   }
+
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem; /* This is a much larger gap */
+  }
   
-  .btn-secondary {
+  .btn-large {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: var(--spacing-2) var(--spacing-5);
-    font-size: 0.875rem;
+    padding: var(--spacing-5) var(--spacing-10);
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-white);
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: var(--border-radius-full);
+    cursor: pointer;
+    box-shadow: var(--shadow-button);
+    transition: var(--transition-default);
+    min-width: 180px;
+  }
+  
+  .btn-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
+    color: var(--color-white);
+  }
+  
+  .btn-secondary-large {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-5) var(--spacing-10);
+    font-size: 1.25rem;
     font-weight: 500;
     text-align: center;
     text-decoration: none;
@@ -38,11 +69,18 @@
     border-radius: var(--border-radius-full);
     cursor: pointer;
     transition: var(--transition-default);
+    min-width: 180px;
   }
   
-  .btn-secondary:hover {
+  .btn-secondary-large:hover {
     background-color: rgba(99, 102, 241, 0.1);
     color: var(--color-primary-light);
+  }
+  
+  /* Add styles for the hero navbar */
+  .hero-navbar {
+    width: 100%;
+    z-index: 50;
   }
   
   /* Section Title */

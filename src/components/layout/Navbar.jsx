@@ -1,17 +1,30 @@
+// components/layout/Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showNav, setShowNav] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
+      // Get the height of the hero section
+      const heroSection = document.getElementById('home');
+      const heroHeight = heroSection ? heroSection.offsetHeight : 0;
+      
+      // Show navbar after scrolling past hero section
+      if (window.scrollY > heroHeight * 0.8) {
+        setShowNav(true);
+        
+        if (window.scrollY > 50) {
+          setScrolled(true);
+        } else {
+          setScrolled(false);
+        }
       } else {
-        setScrolled(false);
+        setShowNav(false);
       }
     };
 
@@ -23,6 +36,9 @@ const Navbar = () => {
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
+
+  // If we're not showing the nav, don't render it
+  if (!showNav) return null;
 
   return (
     <header className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>

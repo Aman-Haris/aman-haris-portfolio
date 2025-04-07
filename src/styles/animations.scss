@@ -140,3 +140,18 @@
   .delay-500 {
     animation-delay: 0.5s;
   }
+
+  @keyframes slideInDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .navbar {
+    animation: slideInDown 0.5s ease forwards;
+  }
