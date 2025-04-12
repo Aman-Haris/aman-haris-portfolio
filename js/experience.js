@@ -1,44 +1,29 @@
-// Experience section functionality
+// Experience/Qualification tabs functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize experience tabs
-    const tabBtns = document.querySelectorAll('.experience-tabs .tab-btn');
-    const timelineItems = document.querySelectorAll('.timeline-item');
+    const tabButtons = document.querySelectorAll('.qualification-button');
+    const tabContents = document.querySelectorAll('.qualification-content');
     
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active tab button
-            tabBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const target = button.dataset.target;
             
-            const target = btn.getAttribute('data-target');
-            
-            // Show/hide timeline items based on selected tab
-            timelineItems.forEach(item => {
-                if (target === 'all' || item.classList.contains(target)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
+            // Remove active class from all buttons and contents
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
             });
-        });
-    });
-    
-    // Expand/collapse timeline details
-    const timelineHeaders = document.querySelectorAll('.timeline-content h3');
-    
-    timelineHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-            const details = this.parentNode.querySelector('.timeline-details');
             
-            if (details) {
-                details.classList.toggle('active');
-                
-                if (details.classList.contains('active')) {
-                    details.style.maxHeight = details.scrollHeight + 'px';
-                } else {
-                    details.style.maxHeight = '0';
-                }
-            }
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Add active class to clicked button and corresponding content
+            button.classList.add('active');
+            document.querySelector(`.qualification-content.${target}`).classList.add('active');
         });
     });
+    
+    // Set first tab as active by default
+    if (tabButtons.length > 0) {
+        tabButtons[0].click();
+    }
 });

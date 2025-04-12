@@ -123,65 +123,108 @@
     <section id="experience" class="experience-section section">
         <div class="container">
             <h2 class="section-title">Experience</h2>
-            <p class="section-subtitle">My journey in the academic & professional front</p>
+            <p class="section-subtitle">My professional journey</p>
             
-            <div class="experience-tabs">
-                <button class="tab-btn active" data-target="all">All</button>
-                <button class="tab-btn" data-target="professional">Professional</button>
-                <button class="tab-btn" data-target="academic">Academic</button>
+            <div class="qualification-tabs">
+                <div class="qualification-button button--flex active" data-target="professional">
+                    <i class="fas fa-briefcase qualification-icon"></i>
+                    Professional
+                </div>
+                <div class="qualification-button button--flex" data-target="academic">
+                    <i class="fas fa-graduation-cap qualification-icon"></i>
+                    Academic
+                </div>
             </div>
             
-            <div class="timeline">
+            <div class="qualification-sections">
                 <!-- Professional Experience -->
-                <div class="timeline-item professional">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Software Engineer 1</h3>
-                        <h4>Tessolve Semiconductors Pvt Ltd</h4>
-                        <p class="timeline-date"><i class="far fa-calendar-alt"></i> Feb 2024 - Present</p>
+                <div class="qualification-content professional active">
+                    <div class="qualification-data">
+                        <div></div> <!-- Empty div for left side -->
                         
-                        <div class="timeline-details">
-                            <h5>Key Projects:</h5>
-                            <ul>
-                                <li>RAG-based Chatbot: Architected and deployed a chatbot system using Langchain, OpenAI, Azure, and Pinecone, enhancing cross-departmental information retrieval by 85%</li>
-                                <li>Session-Memory Training Chatbot: Engineered an intelligent chatbot for technical training that improved engineering onboarding efficiency by 75% and reduced training time</li>
-                                <li>ArchShift Code Converter and Generator: Pioneered a tool leveraging proprietary LLM techniques to transform ARM platform C++ code to RISC-V platform C code, achieving 95% code accuracy and reducing migration time by 90%. The tool could also generate RISC-V codes, achieving 95% code accuracy and reducing development time by 75%.</li>
-                                <li>Assertify: Developed an innovative LLM-powered tool that automates the conversion between English and SystemVerilog Assertions, reducing manual verification effort by 40% and improving code quality</li>
-                                <li>Client Benchmarking Tool: Created an AI-powered ATS solution that compares resumes to job descriptions, calculates match percentages, and generates profile summaries, improving recruitment efficiency by 60%</li>
-                                <li>Sales Suite & Marketing Suite: Developed GenAI applications enabling teams to generate high-quality presentations and marketing materials from PDF inputs, reducing content creation time by 60%. It also has a grammar improvement bot and AI Agents doing various tasks such as fetching industry trends, company information, etc.</li>
-                                <li>DV Flow Tool & DV Query Tool: Engineered tools that automate design specification extraction and processing, enabling DV Engineers to generate assertions, coverage points, and constraints with minimal manual effort</li>
-                            </ul>
-                            
-                            <h5>Leadership & Process Improvement:</h5>
-                            <ul>
-                                <li>Led the implementation of Software Development Lifecycle (SDL) and CI/CD processes for the AI team, establishing standardized workflows that improved project delivery quality and consistency.</li>
-                                <li>Implemented comprehensive Azure cloud architecture for AI applications, ensuring scalability, security, and optimal performance through containerization and CI/CD pipelines</li>
-                                <li>Established best practices for code modularity, documentation, and testing, resulting in improved maintenance efficiency and knowledge transfer across the engineering team.</li>
-                                <li>Provided mentorship to new team members and interns, accelerating their integration and productivity.</li>
-                                <li>Collaborated across multiple business units, including VLSI, Embedded, Sales, Test, HR, etc to develop tailored AI solutions that address specific departmental challenges.</li>
-                                <li>Consistently delivered projects ahead of schedule while maintaining exceptional quality standards, establishing a reputation for reliability and technical excellence</li>
-                                <li>Received Outstanding Performance rating for "exceeding expectations by a huge stretch, going above and beyond immediate areas of responsibility"</li>
-                            </ul>
+                        <div>
+                            <span class="qualification-rounder"></span>
+                            <span class="qualification-line"></span>
+                        </div>
+                        
+                        <div>
+                            <h3 class="qualification-title">Software Engineer 1</h3>
+                            <span class="qualification-subtitle">Tessolve Semiconductors Pvt Ltd</span>
+                            <div class="qualification-calendar">
+                                <i class="fas fa-calendar-alt"></i>
+                                Feb 2024 - Present
+                            </div>
+                            <div class="qualification-details">
+                                <ul>
+                                    <li>RAG-based Chatbot: Architected and deployed a chatbot system using Langchain, OpenAI, Azure, and Pinecone</li>
+                                    <li>Session-Memory Training Chatbot: Engineered an intelligent chatbot for technical training</li>
+                                    <li>ArchShift Code Converter and Generator: Pioneered a tool leveraging proprietary LLM techniques</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="qualification-data">
+                        <div></div> <!-- Empty div for left side -->
+                        
+                        <div>
+                            <span class="qualification-rounder"></span>
+                            <!-- No line after last item -->
+                        </div>
+                        
+                        <div>
+                            <h3 class="qualification-title">Previous Position</h3>
+                            <span class="qualification-subtitle">Company Name</span>
+                            <div class="qualification-calendar">
+                                <i class="fas fa-calendar-alt"></i>
+                                Start Date - End Date
+                            </div>
+                            <div class="qualification-details">
+                                <ul>
+                                    <li>Description of responsibilities and achievements</li>
+                                    <li>Another key accomplishment</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Education -->
-                <div class="timeline-item academic">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>MSc Artificial Intelligence</h3>
-                        <h4>Heriot-Watt University Edinburgh</h4>
-                        <p class="timeline-date"><i class="far fa-calendar-alt"></i> Sept 2022 - Dec 2023</p>
+                <!-- Academic Experience -->
+                <div class="qualification-content academic">
+                    <div class="qualification-data">
+                        <div>
+                            <h3 class="qualification-title">MSc Artificial Intelligence</h3>
+                            <span class="qualification-subtitle">Heriot-Watt University Edinburgh</span>
+                            <div class="qualification-calendar">
+                                <i class="fas fa-calendar-alt"></i>
+                                Sept 2022 - Dec 2023
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <span class="qualification-rounder"></span>
+                            <span class="qualification-line"></span>
+                        </div>
+                        
+                        <div></div> <!-- Empty div for right side -->
                     </div>
-                </div>
-                
-                <div class="timeline-item academic">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>BE in Computer Science</h3>
-                        <h4>AMC Engineering College Bengaluru</h4>
-                        <p class="timeline-date"><i class="far fa-calendar-alt"></i> Aug 2018 - Aug 2022</p>
+                    
+                    <div class="qualification-data">
+                        <div>
+                            <h3 class="qualification-title">BE in Computer Science</h3>
+                            <span class="qualification-subtitle">AMC Engineering College Bengaluru</span>
+                            <div class="qualification-calendar">
+                                <i class="fas fa-calendar-alt"></i>
+                                Aug 2018 - Aug 2022
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <span class="qualification-rounder"></span>
+                            <!-- No line after last item -->
+                        </div>
+                        
+                        <div></div> <!-- Empty div for right side -->
                     </div>
                 </div>
             </div>
