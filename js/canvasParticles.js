@@ -15,7 +15,7 @@ function initCanvasParticles() {
     
     // Configuration
     const config = {
-        particleCount: 1500,                    // Increased particle count
+        particleCount: 1800,                    // Increased particle count
         particleColor: 'rgba(108, 92, 231, 0.8)',
         lineColor: 'rgba(108, 92, 231, 0.5)',  // Increased line opacity
         particleRadius: 2.5,                   // Increased particle size
@@ -29,9 +29,9 @@ function initCanvasParticles() {
     
     // Adjust particle count based on screen width
     if (window.innerWidth > 1600) {
-        config.particleCount = 180;
+        config.particleCount = 2000;
     } else if (window.innerWidth < 600) {
-        config.particleCount = 70;
+        config.particleCount = 500;
     }
     
     // Mouse position
