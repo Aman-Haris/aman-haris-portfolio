@@ -1,4 +1,4 @@
-// canvasParticles.js - Fixed mouse detection
+// canvasParticles.js - Final optimized version
 function initCanvasParticles() {
     const canvas = document.querySelector('.connecting-dots');
     if (!canvas) return;
@@ -15,22 +15,23 @@ function initCanvasParticles() {
     
     // Configuration
     const config = {
-        particleCount: 100,
+        particleCount: 1500,                    // Increased particle count
         particleColor: 'rgba(108, 92, 231, 0.8)',
-        lineColor: 'rgba(108, 92, 231, 0.2)',
-        particleRadius: 2,
-        lineWidth: 1,
-        mouseRadius: 150,
-        particleSpeed: 0.8,
-        particleOpacityBase: 0.8,
-        lineOpacityBase: 0.4
+        lineColor: 'rgba(108, 92, 231, 0.5)',  // Increased line opacity
+        particleRadius: 2.5,                   // Increased particle size
+        lineWidth: 1.2,                        // Increased line width
+        mouseRadius: 180,                      // Increased mouse influence radius
+        particleSpeed: 0.5,                    // Slowed down movement
+        particleOpacityBase: 0.9,              // Increased base opacity
+        lineOpacityBase: 0.6,                  // Increased line opacity
+        defaultLineDistance: 100               // Distance for lines when mouse isn't active
     };
     
     // Adjust particle count based on screen width
     if (window.innerWidth > 1600) {
-        config.particleCount = 150;
+        config.particleCount = 180;
     } else if (window.innerWidth < 600) {
-        config.particleCount = 50;
+        config.particleCount = 70;
     }
     
     // Mouse position
@@ -47,7 +48,7 @@ function initCanvasParticles() {
             this.y = Math.random() * canvas.height / pixelRatio;
             this.vx = (Math.random() - 0.5) * config.particleSpeed;
             this.vy = (Math.random() - 0.5) * config.particleSpeed;
-            this.radius = Math.random() * config.particleRadius + 1;
+            this.radius = Math.random() * config.particleRadius + 1.5;
         }
         
         update() {
@@ -70,9 +71,9 @@ function initCanvasParticles() {
             const distance = Math.sqrt(dx * dx + dy * dy);
             const opacity = mouse.active ? 
                 Math.min(config.particleOpacityBase, config.particleOpacityBase * (1 - distance / config.mouseRadius)) : 
-                config.particleOpacityBase * 0.5;
+                config.particleOpacityBase * 0.7; // Higher base opacity when mouse isn't active
                 
-            ctx.fillStyle = `rgba(108, 92, 231, ${Math.max(0.1, opacity)})`;
+            ctx.fillStyle = `rgba(108, 92, 231, ${Math.max(0.3, opacity)})`;
             ctx.fill();
         }
     }
@@ -85,10 +86,6 @@ function initCanvasParticles() {
             particles.push(new Particle());
         }
     }
-    
-    // Special mouse follower particle
-    let mouseParticle = new Particle();
-    mouseParticle.radius = config.particleRadius * 2;
     
     // Animation loop
     function animate() {
@@ -107,34 +104,47 @@ function initCanvasParticles() {
                 const dy = particles[i].y - particles[j].y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
-                // Only draw lines for particles that are close to each other
-                // and at least one is close to the mouse
-                if (distance < config.mouseRadius) {
-                    const opacity = config.lineOpacityBase * (1 - distance / config.mouseRadius);
-                    
-                    // Check if either particle is close to mouse
-                    let mouseDistance1 = Infinity;
-                    let mouseDistance2 = Infinity;
+                // Draw lines between nearby particles regardless of mouse position
+                const maxDistance = mouse.active ? config.mouseRadius : config.defaultLineDistance;
+                
+                if (distance < maxDistance) {
+                    let opacity;
                     
                     if (mouse.active) {
-                        mouseDistance1 = Math.sqrt(
+                        // Check if either particle is close to mouse
+                        const mouseDistance1 = Math.sqrt(
                             Math.pow(particles[i].x - mouse.x, 2) + 
                             Math.pow(particles[i].y - mouse.y, 2)
                         );
                         
-                        mouseDistance2 = Math.sqrt(
+                        const mouseDistance2 = Math.sqrt(
                             Math.pow(particles[j].x - mouse.x, 2) + 
                             Math.pow(particles[j].y - mouse.y, 2)
                         );
-                    }
-                    
-                    if (mouse.active && (mouseDistance1 < config.mouseRadius || mouseDistance2 < config.mouseRadius)) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(108, 92, 231, ${opacity})`;
-                        ctx.lineWidth = config.lineWidth;
-                        ctx.stroke();
+                        
+                        // If mouse is active and at least one particle is near mouse
+                        if (mouseDistance1 < config.mouseRadius || mouseDistance2 < config.mouseRadius) {
+                            opacity = config.lineOpacityBase * (1 - distance / maxDistance);
+                            
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(108, 92, 231, ${Math.max(0.1, opacity)})`;
+                            ctx.lineWidth = config.lineWidth;
+                            ctx.stroke();
+                        }
+                    } else {
+                        // When mouse is not active, draw some lines anyway
+                        if (distance < config.defaultLineDistance) {
+                            opacity = config.lineOpacityBase * 0.3 * (1 - distance / config.defaultLineDistance);
+                            
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(108, 92, 231, ${Math.max(0.05, opacity)})`;
+                            ctx.lineWidth = config.lineWidth * 0.8;
+                            ctx.stroke();
+                        }
                     }
                 }
             }
@@ -143,7 +153,7 @@ function initCanvasParticles() {
         // Draw mouse follower particle
         if (mouse.active) {
             ctx.beginPath();
-            ctx.arc(mouse.x, mouse.y, config.particleRadius * 2, 0, Math.PI * 2);
+            ctx.arc(mouse.x, mouse.y, config.particleRadius * 2.0, 0, Math.PI * 2);
             ctx.fillStyle = 'rgba(108, 92, 231, 1)';
             ctx.fill();
             
@@ -158,7 +168,7 @@ function initCanvasParticles() {
                     ctx.beginPath();
                     ctx.moveTo(mouse.x, mouse.y);
                     ctx.lineTo(particle.x, particle.y);
-                    ctx.strokeStyle = `rgba(108, 92, 231, ${opacity})`;
+                    ctx.strokeStyle = `rgba(108, 92, 231, ${Math.max(0.15, opacity)})`;
                     ctx.lineWidth = config.lineWidth;
                     ctx.stroke();
                 }
@@ -174,8 +184,6 @@ function initCanvasParticles() {
         mouse.x = e.clientX - rect.left;
         mouse.y = e.clientY - rect.top;
         mouse.active = true;
-        
-        console.log("Mouse detected:", mouse.x, mouse.y); // Debug line
     });
     
     // Handle mouse leave - DOCUMENT LEVEL
@@ -196,32 +204,15 @@ function initCanvasParticles() {
         
         // Adjust particle count
         if (window.innerWidth > 1600) {
-            config.particleCount = 150;
+            config.particleCount = 180;
         } else if (window.innerWidth < 600) {
-            config.particleCount = 50;
+            config.particleCount = 70;
         } else {
-            config.particleCount = 100;
+            config.particleCount = 120;
         }
         
         createParticles();
     });
-    
-    // Add a debug element to check mouse position
-    const debugElement = document.createElement('div');
-    debugElement.style.position = 'fixed';
-    debugElement.style.bottom = '10px';
-    debugElement.style.right = '10px';
-    debugElement.style.background = 'rgba(0,0,0,0.7)';
-    debugElement.style.color = 'white';
-    debugElement.style.padding = '5px';
-    debugElement.style.fontSize = '12px';
-    debugElement.style.zIndex = '9999';
-    document.body.appendChild(debugElement);
-    
-    // Update debug info
-    setInterval(() => {
-        debugElement.textContent = `Mouse: ${mouse.x.toFixed(0)},${mouse.y.toFixed(0)} | Active: ${mouse.active}`;
-    }, 100);
     
     // Initialize
     createParticles();

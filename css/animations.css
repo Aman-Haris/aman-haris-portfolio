@@ -96,19 +96,20 @@
   }
   
   /* Blink Cursor Animation */
+  .cursor {
+    display: inline-block;
+    width: 5px;
+    height: 1.3em; /* Increased from 1.2em to 1.5em */
+    background-color: var(--primary-accent); /* This should already be set */
+    margin-left: 10px;
+    vertical-align: text-bottom;
+    animation: blink 1s infinite; /* Add animation directly instead of using classes */
+    opacity: 1; /* Set to visible by default */
+  }
+
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
-  }
-  
-  .cursor {
-    display: inline-block;
-    width: 2px;
-    height: 1em;
-    background-color: var(--primary-accent);
-    margin-left: 2px;
-    animation: blink 0.8s infinite;
-    vertical-align: middle;
   }
   
   /* Gradient Animation */

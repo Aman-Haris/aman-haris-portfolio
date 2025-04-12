@@ -226,12 +226,6 @@ ul, ol {
   position: relative;
 }
 
-.greeting {
-  font-size: var(--text-xl);
-  margin-bottom: var(--space-2);
-  color: var(--text-secondary);
-}
-
 .name {
   font-size: var(--text-5xl);
   margin-bottom: var(--space-2);
@@ -248,12 +242,39 @@ ul, ol {
   color: var(--primary-accent);
 }
 
+.name .accent {
+  font-size: 1.3em;
+  display: inline-block;
+  margin-left: 0.1em;
+  position: relative;
+}
+
+.logo .accent {
+  font-size: 1.8em;
+  display: inline-block; /* Ensures the size change doesn't affect layout */
+  margin-left: 0.1em; /* Maintains some spacing */
+}
+
+.typed-text {
+  display: inline-block;
+}
+
 .cursor {
   display: inline-block;
   width: 3px;
   height: 1.2em;
   background-color: var(--primary-accent);
-  margin-left: var(--space-1);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.cursor.visible {
+  opacity: 1;
+}
+
+.cursor.blinking {
   animation: blink 1s infinite;
 }
 

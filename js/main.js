@@ -100,31 +100,52 @@ function initNavigation() {
     });
 }
 
-// Initialize typing effect in hero section
+// In main.js, update the initTypingEffect function:
 function initTypingEffect() {
     const titleElement = document.querySelector('.title');
+    if (!titleElement) return;
+    
     // Store original text
     const originalText = titleElement.textContent.trim();
-    // Clear the element
-    titleElement.innerHTML = '<span class="cursor">|</span>';
     
+    // Clear the element but keep any existing HTML structure
+    titleElement.innerHTML = '';
+    
+    // Create a container for the typing effect
+    const typingContainer = document.createElement('div');
+    typingContainer.className = 'typing-container';
+    
+    // Create the text element
+    const textElement = document.createElement('span');
+    textElement.className = 'typed-text'; // Changed to match CSS
+    
+    // Create the cursor element
+    const cursorElement = document.createElement('span');
+    cursorElement.className = 'cursor blinking'; // Changed to match CSS and add blinking class
+    cursorElement.innerHTML = '';
+    
+    // Add elements to the container
+    typingContainer.appendChild(textElement);
+    typingContainer.appendChild(cursorElement);
+    
+    // Add the container to the title element
+    titleElement.appendChild(typingContainer);
+    
+    // Animation variables
     let charIndex = 0;
-    const typingSpeed = 100;
+    const typingDelay = 100; // milliseconds between each character
     
-    // Wait before starting to type
-    setTimeout(() => {
-        function typeNextChar() {
-            if (charIndex < originalText.length) {
-                // Insert the next character before the cursor
-                titleElement.innerHTML = originalText.substring(0, charIndex + 1) + 
-                                        '<span class="cursor">|</span>';
-                charIndex++;
-                setTimeout(typeNextChar, typingSpeed);
-            }
+    // Function to type the text character by character
+    function typeText() {
+        if (charIndex < originalText.length) {
+            textElement.textContent += originalText.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeText, typingDelay);
         }
-        
-        typeNextChar();
-    }, 500);
+    }
+    
+    // Start typing after a short delay
+    setTimeout(typeText, 800);
 }
 
 // Initialize scroll reveal animations
