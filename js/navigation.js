@@ -10,15 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
     let lastScrollTop = 0;
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const aboutSection = document.getElementById('about');
         
-        // Show navbar when scrolling up or when past the hero section
-        if (scrollTop > window.innerHeight * 0.8 || scrollTop < lastScrollTop) {
+        // Only show navbar when scrolled to or past the about section
+        if (scrollTop >= aboutSection.offsetTop - 100) {
             navbar.classList.add('visible');
         } else {
             navbar.classList.remove('visible');
         }
-        
-        lastScrollTop = scrollTop;
         
         // Update active nav link based on scroll position
         updateActiveNavLink();

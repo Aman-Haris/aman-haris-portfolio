@@ -97,21 +97,18 @@
   
   /* Blink Cursor Animation */
   @keyframes blink {
-    from, to {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
   
   .cursor {
     display: inline-block;
-    width: 3px;
-    height: 1.2em;
+    width: 2px;
+    height: 1em;
     background-color: var(--primary-accent);
     margin-left: 2px;
-    animation: blink 1s infinite;
+    animation: blink 0.8s infinite;
+    vertical-align: middle;
   }
   
   /* Gradient Animation */

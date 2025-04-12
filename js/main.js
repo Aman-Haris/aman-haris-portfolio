@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initNavigation();
-    initParticles();
+    initCanvasParticles();
     initSkillsAccordion();
     initProjectTabs();
     initExperienceTabs();
@@ -103,25 +103,28 @@ function initNavigation() {
 // Initialize typing effect in hero section
 function initTypingEffect() {
     const titleElement = document.querySelector('.title');
-    const originalText = titleElement.textContent;
-    titleElement.textContent = '';
+    // Store original text
+    const originalText = titleElement.textContent.trim();
+    // Clear the element
+    titleElement.innerHTML = '<span class="cursor">|</span>';
     
-    let i = 0;
-    const typingSpeed = 100; // Speed in milliseconds
+    let charIndex = 0;
+    const typingSpeed = 100;
     
-    function typeWriter() {
-        if (i < originalText.length) {
-            titleElement.textContent += originalText.charAt(i);
-            i++;
-            setTimeout(typeWriter, typingSpeed);
-        } else {
-            // Add blinking cursor at the end
-            titleElement.innerHTML = originalText + '<span class="cursor">|</span>';
+    // Wait before starting to type
+    setTimeout(() => {
+        function typeNextChar() {
+            if (charIndex < originalText.length) {
+                // Insert the next character before the cursor
+                titleElement.innerHTML = originalText.substring(0, charIndex + 1) + 
+                                        '<span class="cursor">|</span>';
+                charIndex++;
+                setTimeout(typeNextChar, typingSpeed);
+            }
         }
-    }
-    
-    // Start typing effect with a slight delay
-    setTimeout(typeWriter, 500);
+        
+        typeNextChar();
+    }, 500);
 }
 
 // Initialize scroll reveal animations
