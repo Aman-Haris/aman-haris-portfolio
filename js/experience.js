@@ -1,24 +1,26 @@
-// Experience/Qualification tabs functionality
+// Improved experience tabs for mobile
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.qualification-button');
     const tabContents = document.querySelectorAll('.qualification-content');
     
+    // Make tabs more touch-friendly
     tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const target = button.dataset.target;
-            
-            // Remove active class from all buttons and contents
-            tabButtons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            tabContents.forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // Add active class to clicked button and corresponding content
-            button.classList.add('active');
-            document.querySelector(`.qualification-content.${target}`).classList.add('active');
+        button.addEventListener('click', function() {
+            // Add slight delay for mobile to ensure smooth transition
+            setTimeout(() => {
+                const target = this.dataset.target;
+                
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                this.classList.add('active');
+                document.querySelector(`.qualification-content.${target}`).classList.add('active');
+            }, 50);
         });
     });
     

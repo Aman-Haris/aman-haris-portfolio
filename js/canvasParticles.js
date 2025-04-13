@@ -31,7 +31,7 @@ function initCanvasParticles() {
     if (window.innerWidth > 1600) {
         config.particleCount = 2000;
     } else if (window.innerWidth < 600) {
-        config.particleCount = 500;
+        config.particleCount = 900;
     }
     
     // Mouse position
