@@ -671,25 +671,59 @@ ul, ol {
   position: relative;
 }
 
-/* Skills Section */
-.skills-container {
+/* Skills Grid Layout */
+.skills-grid {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.skills-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  position: relative;
+}
+
+.skills-row:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: calc(-1 * var(--space-2));
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  opacity: 0.5;
 }
 
 .skill-category {
   background-color: var(--secondary-bg);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  border: 1px solid var(--border-color);
+  height: 100%;
 }
 
+/* Compact header */
 .category-header {
   display: flex;
   align-items: center;
-  padding: var(--space-4);
+  padding: var(--space-3) var(--space-4);
   cursor: pointer;
-  transition: background-color var(--transition-fast);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.category-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: var(--space-4);
+  right: var(--space-4);
+  height: 1px;
+  background-color: var(--border-color);
+  opacity: 0.3;
 }
 
 .category-header:hover {
@@ -697,11 +731,11 @@ ul, ol {
 }
 
 .category-icon {
-  font-size: var(--text-2xl);
+  font-size: var(--text-lg);
   color: var(--primary-accent);
-  margin-right: var(--space-4);
-  width: 40px;
-  height: 40px;
+  margin-right: var(--space-3);
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -709,61 +743,100 @@ ul, ol {
   border-radius: var(--radius-full);
 }
 
-.category-info {
+.category-title {
   flex: 1;
-}
-
-.category-info h3 {
-  margin-bottom: var(--space-1);
-}
-
-.category-info p {
   margin: 0;
-  color: var(--text-muted);
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
+  font-weight: 600;
 }
 
-.category-toggle i {
+.category-toggle {
   transition: transform 0.3s ease;
 }
 
-.category-toggle.active i {
+.category-toggle.active {
   transform: rotate(180deg);
 }
 
+/* Compact content */
 .category-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease-out;
+  transition: max-height 0.3s ease-out;
+  padding: 0 var(--space-4);
 }
 
 .category-content.active {
-  max-height: 1000px;
+  padding: var(--space-3) var(--space-4);
 }
 
 .skill-item {
-  padding: var(--space-3) var(--space-4);
-  border-top: 1px solid var(--border-color);
-}
-
-.skill-info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: var(--space-2);
+  align-items: center;
+  padding: var(--space-2) 0;
+  font-size: var(--text-sm);
+  position: relative;
 }
 
-.skill-bar {
-  height: 6px;
-  background-color: var(--card-bg);
-  border-radius: var(--radius-full);
-  overflow: hidden;
+.skill-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  opacity: 0.2;
 }
 
-.skill-progress {
-  height: 100%;
-  background-color: var(--primary-accent);
-  border-radius: var(--radius-full);
-  transition: width 1s ease-in-out;
+/* Dot-based skill levels */
+.skill-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.skill-dots::before {
+  content: '●●●●●';
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--card-bg);
+}
+
+.skill-dots.expert::before {
+  color: var(--primary-accent);
+}
+
+.skill-dots.advanced::before {
+  content: '●●●●○';
+  color: var(--secondary-accent);
+}
+
+.skill-dots.intermediate::before {
+  content: '●●●○○';
+  color: var(--tertiary-accent);
+}
+
+.skill-dots.beginner::before {
+  content: '●●○○○';
+  color: var(--warning-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .skills-row {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-row {
+      grid-template-columns: 1fr;
+  }
+  
+  .category-header {
+      padding: var(--space-2) var(--space-3);
+  }
 }
 
 /* Projects Section */

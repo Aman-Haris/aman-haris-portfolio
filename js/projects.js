@@ -1,50 +1,11 @@
-// Improved project slider for mobile
-function initProjectSlider() {
-    const swiperContainer = document.querySelector('.swiper-container');
-    if (!swiperContainer) return;
-    
-    window.projectSwiper = new Swiper('.swiper-container', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        centeredSlides: false,
-        loop: false,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-            dynamicBullets: true
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            480: {
-                slidesPerView: 1.2,
-                spaceBetween: 20
-            },
-            640: {
-                slidesPerView: 1.5,
-                spaceBetween: 20
-            },
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 25
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 30
-            }
-        }
-    });
-}
-
-// Improved project tabs for mobile
+// Project tabs and slider functionality
 function initProjectTabs() {
     const tabBtns = document.querySelectorAll('.project-tabs .tab-btn');
     const projectCards = document.querySelectorAll('.project-card');
     
     if (!tabBtns.length || !projectCards.length) return;
 
+    // Function to filter projects
     function filterProjects(category) {
         projectCards.forEach(card => {
             card.style.display = 'none';
@@ -61,21 +22,40 @@ function initProjectTabs() {
         }
         
         if (window.projectSwiper) {
-            setTimeout(() => {
-                window.projectSwiper.update();
-                window.projectSwiper.slideTo(0, 300);
-            }, 50);
+            window.projectSwiper.update();
+            window.projectSwiper.slideTo(0);
         }
     }
     
+    // Add click event to tab buttons
     tabBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Prevent rapid clicking on mobile
-            if (this.classList.contains('active')) return;
-            
+        btn.addEventListener('click', () => {
             tabBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            filterProjects(this.getAttribute('data-target'));
+            btn.classList.add('active');
+            filterProjects(btn.getAttribute('data-target'));
         });
+    });
+}
+
+function initProjectSlider() {
+    if (!document.querySelector('.swiper-container')) return;
+    
+    window.projectSwiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: false,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            640: { slidesPerView: 1, spaceBetween: 20 },
+            768: { slidesPerView: 2, spaceBetween: 30 },
+            1024: { slidesPerView: 3, spaceBetween: 30 }
+        }
     });
 }
