@@ -754,20 +754,16 @@ ul, ol {
   transition: transform 0.3s ease;
 }
 
-.category-toggle.active {
-  transform: rotate(180deg);
-}
-
 /* Compact content */
 .category-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-  padding: 0 var(--space-4);
+  padding-left: .5rem;
 }
 
-.category-content.active {
-  padding: var(--space-3) var(--space-4);
+.category-toggle.active {
+  transform: rotate(180deg);
 }
 
 .skill-item {

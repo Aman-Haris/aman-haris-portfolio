@@ -1,24 +1,27 @@
-function toggleCategory(categoryId) {
-    const category = document.getElementById(categoryId);
-    const content = category.querySelector('.category-content');
-    const toggle = category.querySelector('.category-toggle');
+function initSkillsAccordion() {
+    const skillRows = document.querySelectorAll('.skills-row');
     
-    // Toggle the active state
-    const isActive = content.classList.toggle('active');
-    toggle.classList.toggle('active', isActive);
-    
-    // Animate the height
-    if (isActive) {
-        content.style.maxHeight = content.scrollHeight + 'px';
-    } else {
-        content.style.maxHeight = '0';
-    }
-}
-
-// Initialize all categories on load
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.skill-category').forEach(category => {
-        const content = category.querySelector('.category-content');
-        content.style.maxHeight = '0'; // Start all collapsed
+    skillRows.forEach(row => {
+        const categories = row.querySelectorAll('.skill-category');
+        
+        categories.forEach(category => {
+            const header = category.querySelector('.category-header');
+            const content = category.querySelector('.category-content');
+            const toggle = category.querySelector('.category-toggle');
+            
+            header.addEventListener('click', () => {
+                // Toggle all categories in this row
+                const willOpen = content.style.maxHeight === '0px';
+                
+                categories.forEach(cat => {
+                    const catContent = cat.querySelector('.category-content');
+                    const catToggle = cat.querySelector('.category-toggle');
+                    
+                    catContent.style.maxHeight = willOpen ? 
+                        `${catContent.scrollHeight}px` : '0';
+                    catToggle.classList.toggle('active', willOpen);
+                });
+            });
+        });
     });
-});
+}

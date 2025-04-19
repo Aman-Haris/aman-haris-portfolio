@@ -174,56 +174,43 @@ function initScrollReveal() {
 
 // Initialize skills accordion
 function initSkillsAccordion() {
-    const skillCategories = document.querySelectorAll('.skill-category');
-    
-    skillCategories.forEach(category => {
-        const header = category.querySelector('.category-header');
-        const content = category.querySelector('.category-content');
-        const toggle = category.querySelector('.category-toggle');
+    // Wait for DOM to be fully ready
+    document.addEventListener('DOMContentLoaded', function() {
+        const categories = document.querySelectorAll('.skill-category');
         
-        // Open the first category by default
-        if (category === skillCategories[0]) {
-            content.classList.add('active');
-            toggle.classList.add('active');
-            content.style.maxHeight = content.scrollHeight + 'px';
-        }
-        
-        header.addEventListener('click', () => {
-            // Toggle the clicked category
-            content.classList.toggle('active');
-            toggle.classList.toggle('active');
+        categories.forEach(category => {
+            const header = category.querySelector('.category-header');
+            const content = category.querySelector('.category-content');
+            const toggle = category.querySelector('.category-toggle');
             
-            if (content.classList.contains('active')) {
-                content.style.maxHeight = content.scrollHeight + 'px';
-            } else {
+            // Initialize all as closed except first
+            if (category !== categories[0]) {
                 content.style.maxHeight = '0';
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                toggle.classList.add('active');
             }
+            
+            // Add click handler
+            header.addEventListener('click', function() {
+                const isOpening = content.style.maxHeight === '0px';
+                
+                // Toggle this category only
+                content.style.maxHeight = isOpening ? content.scrollHeight + 'px' : '0';
+                toggle.classList.toggle('active', isOpening);
+                
+                // Close all other categories if needed (optional)
+                /*
+                categories.forEach(otherCat => {
+                    if (otherCat !== category) {
+                        otherCat.querySelector('.category-content').style.maxHeight = '0';
+                        otherCat.querySelector('.category-toggle').classList.remove('active');
+                    }
+                });
+                */
+            });
         });
     });
-    
-    // Animate skill progress bars when visible
-    const skillBars = document.querySelectorAll('.skill-progress');
-    
-    const animateSkillBars = function() {
-        skillBars.forEach(bar => {
-            const barTop = bar.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (barTop < windowHeight) {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
-            }
-        });
-    };
-    
-    // Initial check on page load
-    animateSkillBars();
-    
-    // Check on scroll
-    window.addEventListener('scroll', animateSkillBars);
 }
 
 // Initialize project tabs
