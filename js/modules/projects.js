@@ -8,6 +8,8 @@ class ProjectSystem {
 
         if (this.tabBtns.length && this.projectCards.length) {
             this.initTabs();
+            // Activate first tab by default
+            this.tabBtns[0].click();
         }
 
         if (this.swiperContainer) {
@@ -19,24 +21,27 @@ class ProjectSystem {
 
     initTabs() {
         this.tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => this.filterProjects(btn));
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = btn.dataset.target;
+                this.updateActiveTab(btn, target);
+            });
         });
     }
 
-    filterProjects(activeBtn) {
+    updateActiveTab(activeBtn, target) {
         this.tabBtns.forEach(btn => btn.classList.remove('active'));
         activeBtn.classList.add('active');
-
-        const target = activeBtn.dataset.target;
+    
         this.projectCards.forEach(card => {
-            card.style.display = (target === 'all-projects' || card.classList.contains(target)) 
-                ? 'flex' 
-                : 'none';
+            card.style.display = card.classList.contains(target) ? 'flex' : 'none';
         });
-
+    
         if (window.projectSwiper) {
-            window.projectSwiper.update();
-            setTimeout(() => window.projectSwiper.update(), 300);
+            setTimeout(() => {
+                window.projectSwiper.update();
+                window.projectSwiper.slideTo(0); // Reset to first slide
+            }, 100);
         }
     }
 
@@ -44,11 +49,10 @@ class ProjectSystem {
         window.projectSwiper = new Swiper('.swiper-container', {
             slidesPerView: 1,
             spaceBetween: 30,
-            loop: true, // Enable looping
+            loop: false, // Disable looping to prevent project mixing
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
-                dynamicBullets: true,
             },
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -58,30 +62,21 @@ class ProjectSystem {
                 640: { slidesPerView: 1, spaceBetween: 20 },
                 768: { slidesPerView: 2, spaceBetween: 30 },
                 1024: { slidesPerView: 3, spaceBetween: 30 }
+            },
+            // Update slides when tab changes
+            on: {
+                init: function() {
+                    this.update();
+                }
             }
         });
     }
 
     initModals() {
         // Close modal when clicking X or outside
-        document.querySelector('.modal-close').addEventListener('click', () => this.closeModal());
-        this.modal.addEventListener('click', (e) => {
+        document.querySelector('.modal-close')?.addEventListener('click', () => this.closeModal());
+        this.modal?.addEventListener('click', (e) => {
             if (e.target === this.modal) this.closeModal();
-        });
-
-        // Demo button handlers
-        document.querySelectorAll('.demo-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const videoSrc = btn.closest('.project-card').querySelector('.project-video source').src;
-                this.openModal(`
-                    <video class="modal-video" controls autoplay>
-                        <source src="${videoSrc}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <h3>${btn.closest('.project-card').querySelector('h3').textContent}</h3>
-                `);
-            });
         });
 
         // View button handlers (show project details)
@@ -100,6 +95,13 @@ class ProjectSystem {
                         </video>
                     </div>
                     ` : ''}
+                    ${card.querySelector('.github-btn') ? `
+                    <div class="project-links">
+                        <a href="${card.querySelector('.github-btn').href}" target="_blank" class="btn github-btn">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                    ` : ''}
                 `);
             });
         });
@@ -112,6 +114,9 @@ class ProjectSystem {
         `;
         this.modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
+        
+        // Re-attach close event to the new button
+        this.modalContent.querySelector('.modal-close').addEventListener('click', () => this.closeModal());
     }
 
     closeModal() {
