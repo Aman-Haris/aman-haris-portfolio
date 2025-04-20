@@ -14,7 +14,14 @@
     
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/experience.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
     
@@ -238,7 +245,7 @@
     <section id="skills" class="skills-section section">
         <div class="container">
             <h2 class="section-title">Skills</h2>
-            <p class="section-subtitle">My technical expertise</p>
+            <p class="section-subtitle">My technical and non-technical expertise</p>
             
             <div class="skills-grid">
                 <!-- Row 1 -->
@@ -256,12 +263,12 @@
                                 <div class="skill-dots expert"></div>
                             </div>
                             <div class="skill-item">
-                                <span>LLMs</span>
+                                <span>Prompt Engineering</span>
                                 <div class="skill-dots expert"></div>
                             </div>
                             <div class="skill-item">
                                 <span>RAG</span>
-                                <div class="skill-dots expert"></div>
+                                <div class="skill-dots advanced"></div>
                             </div>
                             <div class="skill-item">
                                 <span>NLP</span>
@@ -291,15 +298,15 @@
                                 <div class="skill-dots advanced"></div>
                             </div>
                             <div class="skill-item">
-                                <span>C++</span>
-                                <div class="skill-dots intermediate"></div>
-                            </div>
-                            <div class="skill-item">
                                 <span>SQL</span>
                                 <div class="skill-dots advanced"></div>
                             </div>
                             <div class="skill-item">
                                 <span>HTML/CSS/JS</span>
+                                <div class="skill-dots advanced"></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>C++</span>
                                 <div class="skill-dots intermediate"></div>
                             </div>
                         </div>
@@ -309,25 +316,29 @@
                     <div class="skill-category" id="cloud-devops-category">
                         <div class="category-header">
                             <div class="category-icon"><i class="fas fa-cloud"></i></div>
-                            <h3 class="category-title">Cloud/DevOps</h3>
+                            <h3 class="category-title">Cloud & DevOps</h3>
                             <div class="category-toggle"><i class="fas fa-chevron-down"></i></div>
                         </div>
                         <div class="category-content">
                             <div class="skill-item">
-                                <span>Azure AI</span>
+                                <span>Azure AI Services</span>
                                 <div class="skill-dots advanced"></div>
                             </div>
                             <div class="skill-item">
-                                <span>Azure Apps</span>
+                                <span>Azure Web App and Function App Services</span>
                                 <div class="skill-dots advanced"></div>
                             </div>
                             <div class="skill-item">
-                                <span>Azure Containers</span>
+                                <span>Azure Container Registry</span>
+                                <div class="skill-dots intermediate"></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Azure Entra ID</span>
                                 <div class="skill-dots intermediate"></div>
                             </div>
                             <div class="skill-item">
                                 <span>Docker</span>
-                                <div class="skill-dots advanced"></div>
+                                <div class="skill-dots intermediate"></div>
                             </div>
                         </div>
                     </div>
@@ -345,7 +356,7 @@
                         <div class="category-content">
                             <div class="skill-item">
                                 <span>Langchain</span>
-                                <div class="skill-dots expert"></div>
+                                <div class="skill-dots advanced"></div>
                             </div>
                             <div class="skill-item">
                                 <span>Huggingface</span>
@@ -353,7 +364,7 @@
                             </div>
                             <div class="skill-item">
                                 <span>OpenAI</span>
-                                <div class="skill-dots expert"></div>
+                                <div class="skill-dots advanced"></div>
                             </div>
                             <div class="skill-item">
                                 <span>Pinecone</span>
@@ -361,10 +372,6 @@
                             </div>
                             <div class="skill-item">
                                 <span>Streamlit</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Gradio</span>
                                 <div class="skill-dots advanced"></div>
                             </div>
                         </div>
@@ -387,7 +394,7 @@
                                 <div class="skill-dots advanced"></div>
                             </div>
                             <div class="skill-item">
-                                <span>Anaconda</span>
+                                <span>Figma</span>
                                 <div class="skill-dots advanced"></div>
                             </div>
                             <div class="skill-item">
@@ -411,7 +418,7 @@
                         <div class="category-content">
                             <div class="skill-item">
                                 <span>Technical Leadership</span>
-                                <div class="skill-dots advanced"></div>
+                                <div class="skill-dots expert"></div>
                             </div>
                             <div class="skill-item">
                                 <span>Process Optimization</span>
@@ -440,7 +447,7 @@
     <section id="projects" class="projects-section section">
         <div class="container">
             <h2 class="section-title">Projects</h2>
-            <p class="section-subtitle">My independent projects & contributions</p>
+            <p class="section-subtitle">My professional and personal projects</p>
             
             <div class="project-tabs">
                 <button class="tab-btn active" data-target="professional-projects">
@@ -493,7 +500,7 @@
                                 <h3>Session-Memory Training Chatbot</h3>
                                 <p>Engineered an intelligent chatbot for technical training that improved engineering onboarding efficiency by 75% and reduced training time.</p>
                                 <div class="project-tech">
-                                    <span class="tech-tag">LLMs</span>
+                                    <span class="tech-tag">GenAI</span>
                                     <span class="tech-tag">Azure</span>
                                     <span class="tech-tag">Python</span>
                                 </div>
@@ -515,11 +522,89 @@
                                 </video>
                             </div>
                             <div class="project-info">
-                                <h3>ArchShift Code Converter</h3>
-                                <p>Pioneered a tool leveraging proprietary LLM techniques to transform ARM platform C++ code to RISC-V platform C code, achieving 95% code accuracy.</p>
+                                <h3>ArchShift Code Converter and Generator</h3>
+                                <p>Pioneered a tool leveraging proprietary LLM techniques to transform ARM platform C++ code to RISC-V platform C code, achieving 95% code accuracy and reducing migration time by 90%. The tool could also generate RISC-V codes, achieving 95% code accuracy and reducing development time by 75%.</p>
                                 <div class="project-tech">
-                                    <span class="tech-tag">LLMs</span>
-                                    <span class="tech-tag">C++</span>
+                                    <span class="tech-tag">GenAI</span>
+                                    <span class="tech-tag">Prompt Engineering</span>
+                                    <span class="tech-tag">Python</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="btn view-btn">
+                                        <i class="fas fa-info-circle"></i> Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Professional Project 4 -->
+                        <div class="swiper-slide project-card professional-projects">
+                            <div class="project-image">
+                                <img src="assets/images/projects/code-converter.jpg" alt="Assertify">
+                                <video class="project-video" loop muted>
+                                    <source src="assets/videos/assertify.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="project-info">
+                                <h3>Assertify</h3>
+                                <p>Developed an innovative LLM-powered tool that automates the conversion between English and SystemVerilog Assertions, reducing manual verification effort by 40% and improving code quality.
+                                </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">GenAI</span>
+                                    <span class="tech-tag">Prompt Engineering</span>
+                                    <span class="tech-tag">Python</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="btn view-btn">
+                                        <i class="fas fa-info-circle"></i> Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Professional Project 5 -->
+                        <div class="swiper-slide project-card professional-projects">
+                            <div class="project-image">
+                                <img src="assets/images/projects/code-converter.jpg" alt="Resume Analyitcs Tool">
+                                <video class="project-video" loop muted>
+                                    <source src="assets/videos/ats.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="project-info">
+                                <h3>Resume Analyitcs Tool</h3>
+                                <p>Created an AI-powered ATS solution that compares resumes to job descriptions, calculates match percentages, and generates profile summaries, improving recruitment efficiency by 75%.
+                                </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">GenAI</span>
+                                    <span class="tech-tag">Prompt Engineering</span>
+                                    <span class="tech-tag">Python</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="btn view-btn">
+                                        <i class="fas fa-info-circle"></i> Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Professional Project 6 -->
+                        <div class="swiper-slide project-card professional-projects">
+                            <div class="project-image">
+                                <img src="assets/images/projects/code-converter.jpg" alt="Sales Suite & Marketing Suite">
+                                <video class="project-video" loop muted>
+                                    <source src="assets/videos/ats.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="project-info">
+                                <h3>Sales Suite & Marketing Suite</h3>
+                                <p>Developed GenAI applications enabling teams to generate high-quality presentations and marketing materials from PDF inputs, reducing content creation time by 60%. It also has a grammar improvement bot and AI Agents doing various tasks such as fetching industry trends, company information, etc.
+                                </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">GenAI</span>
+                                    <span class="tech-tag">Prompt Engineering</span>
                                     <span class="tech-tag">Python</span>
                                 </div>
                                 <div class="project-links">
@@ -600,7 +685,7 @@
                                 <p>Developed a production-ready NLP service that identifies potentially offensive content in user-generated text with a RESTful API endpoint.</p>
                                 <div class="project-tech">
                                     <span class="tech-tag">NLP</span>
-                                    <span class="tech-tag">FastAPI</span>
+                                    <span class="tech-tag">Flask</span>
                                     <span class="tech-tag">Python</span>
                                 </div>
                                 <div class="project-links">
