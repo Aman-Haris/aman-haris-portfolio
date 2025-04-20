@@ -1284,6 +1284,35 @@ button[type="submit"]:hover::after {
   left: 100%;
 }
 
+/* Formspree-specific styles */
+.loading-icon {
+  display: none !important; /* Force hide initially */
+}
+
+button[type="submit"] .fa-spinner {
+  margin-left: 8px;
+  display: none; /* Hide spinner by default */
+}
+
+button[type="submit"].loading .fa-paper-plane {
+  display: none; /* Hide plane icon when loading */
+}
+
+button[type="submit"].loading .fa-spinner {
+  display: inline-block; /* Show spinner when loading */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Honeypot field (spam protection) */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+}
+
 /* Footer */
 .footer {
   background-color: var(--secondary-bg);

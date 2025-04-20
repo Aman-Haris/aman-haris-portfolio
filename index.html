@@ -717,31 +717,50 @@
             </div>
             </div>
             
+            <!-- Contact Form -->
             <div class="contact-form">
-            <form id="contactForm">
-                <div class="form-group floating">
-                <input type="text" id="name" name="name" placeholder=" " required>
-                <label for="name">Name</label>
-                </div>
-                
-                <div class="form-group floating">
-                <input type="email" id="email" name="email" placeholder=" " required>
-                <label for="email">Email</label>
-                </div>
-                
-                <div class="form-group floating">
-                <input type="text" id="subject" name="subject" placeholder=" " required>
-                <label for="subject">Subject</label>
-                </div>
-                
-                <div class="form-group floating">
-                <textarea id="message" name="message" placeholder=" " required maxlength="500"></textarea>
-                <label for="message">Message</label>
-                </div>
-                
-                <button type="submit" class="btn primary-btn">Send Message <i class="fas fa-paper-plane"></i></button>
-            </form>
-            </div>
+                <form 
+                  id="contactForm" 
+                  action="https://formspree.io/f/xwplgady" 
+                  method="POST"
+                >
+                  <!-- Formspree Metadata -->
+                  <input type="hidden" name="_subject" value="New message from Aman Haris' portfolio">
+                  <input type="hidden" name="_language" value="en">
+                  
+                  <!-- Honeypot Field -->
+                  <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
+                  
+                  <!-- Form Fields -->
+                  <div class="form-group floating">
+                    <input type="text" id="name" name="name" placeholder=" " required>
+                    <label for="name">Name</label>
+                  </div>
+                  
+                  <div class="form-group floating">
+                    <input type="email" id="email" name="email" placeholder=" " required>
+                    <label for="email">Email</label>
+                  </div>
+                  
+                  <div class="form-group floating">
+                    <input type="text" id="subject" name="subject" placeholder=" " required>
+                    <label for="subject">Subject</label>
+                  </div>
+                  
+                  <div class="form-group floating">
+                    <textarea id="message" name="message" placeholder=" " required maxlength="500"></textarea>
+                    <label for="message">Message</label>
+                    <div class="char-counter">0/500</div>
+                  </div>
+                  
+                  <!-- Submit Button -->
+                  <button type="submit" class="btn primary-btn">
+                    <span class="button-text">Send Message</span>
+                    <i class="fas fa-paper-plane"></i>
+                    <i class="fas fa-spinner fa-spin loading-icon"></i>
+                  </button>
+                </form>
+              </div>
         </div>
         </div>
     </section>
