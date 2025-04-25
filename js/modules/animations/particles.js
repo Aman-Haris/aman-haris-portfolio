@@ -32,9 +32,11 @@ class ParticleSystem {
     }
 
     calculateParticleCount() {
-        if (window.innerWidth > 1600) return 700;
-        if (window.innerWidth < 600) return 500;
-        return 600;
+        if (window.innerWidth > 1279) return 700;
+        if (window.innerWidth > 600 && window.innerWidth < 1280) return 500;
+        if (window.innerWidth > 359 && window.innerWidth < 601) return 250;
+        if (window.innerWidth < 360) return 50;
+        return 500;
     }
 
     initParticles() {
