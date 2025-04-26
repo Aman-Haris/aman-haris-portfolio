@@ -1,180 +1,191 @@
 /* ===== Contact Form Improvements ===== */
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-  }
-  
-  @media (max-width: 768px) {
-    .contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .contact-content {
       grid-template-columns: 1fr;
-    }
   }
-  
-  .contact-form {
-    background-color: var(--card-bg);
-    padding: 2rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
+
+  .contact-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Two-column layout for links */
+      gap: 1rem; /* Adjust gap for compact layout */
   }
-  
-  .form-group {
-    margin-bottom: 1.25rem;
-    position: relative;
+
+  .contact-links h3,
+  .contact-links p {
+      font-size: 0.9rem; /* Reduce font size for smaller screens */
   }
-  
-  .form-group.floating {
-    position: relative;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--text-primary);
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    background-color: var(--card-bg);
-    border: 2px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    color: var(--text-primary);
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    transition: all var(--transition-normal);
-  }
-  
-  .form-group textarea {
-    min-height: 150px;
-    resize: vertical;
-  }
-  
-  .form-group input:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-accent);
-    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
-  }
-  
-  /* Floating labels */
-  .form-group.floating label {
-    position: absolute;
-    top: 0.75rem;
-    left: 1rem;
-    transition: all var(--transition-fast);
-    pointer-events: none;
-    color: var(--text-secondary);
-    background-color: var(--card-bg);
-    padding: 0 0.25rem;
-  }
-  
-  .form-group.floating input:focus + label,
-  .form-group.floating input:not(:placeholder-shown) + label,
-  .form-group.floating textarea:focus + label,
-  .form-group.floating textarea:not(:placeholder-shown) + label {
-    top: -0.625rem;
-    left: 0.625rem;
-    font-size: 0.75rem;
-    color: var(--primary-accent);
-  }
-  
-  /* Error states */
-  .error-field {
-    border-color: #f33 !important;
-  }
-  
-  .error-message {
-    color: #f33;
-    font-size: 0.8rem;
-    margin-top: 0.25rem;
-  }
-  
-  /* Form messages */
-  .form-message {
-    padding: 0.75rem 1rem;
-    border-radius: var(--radius-lg);
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    animation: slideDown 0.3s ease;
-  }
-  
-  .form-message.error {
-    background-color: rgba(255, 51, 51, 0.1);
-    border-left: 4px solid #f33;
-    color: #f33;
-  }
-  
-  .form-message.success {
-    background-color: rgba(76, 175, 80, 0.1);
-    border-left: 4px solid #4CAF50;
-    color: #4CAF50;
-  }
-  
-  @keyframes slideDown {
-    from { transform: translateY(-1.25rem); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  
-  /* Character counter */
-  .char-counter {
-    text-align: right;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    margin-top: 0.25rem;
-  }
-  
-  /* Submit button animation */
-  button[type="submit"] {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  button[type="submit"]::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255,255,255,0.1);
-    transform: rotate(45deg);
-    transition: all var(--transition-normal);
-  }
-  
-  button[type="submit"]:hover::after {
-    left: 100%;
-  }
-  
-  /* Formspree-specific styles */
-  .loading-icon {
-    display: none !important; /* Force hide initially */
-  }
-  
-  button[type="submit"] .fa-spinner {
-    margin-left: 8px;
-    display: none; /* Hide spinner by default */
-  }
-  
-  button[type="submit"].loading .fa-paper-plane {
-    display: none; /* Hide plane icon when loading */
-  }
-  
-  button[type="submit"].loading .fa-spinner {
-    display: inline-block; /* Show spinner when loading */
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  /* Honeypot field (spam protection) */
-  .hp-field {
-    position: absolute;
-    left: -9999px;
-  }
+}
+
+.contact-form {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.form-group.floating {
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  transition: all var(--transition-normal);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+/* Floating labels */
+.form-group.floating label {
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+  transition: all var(--transition-fast);
+  pointer-events: none;
+  color: var(--text-secondary);
+  background-color: var(--card-bg);
+  padding: 0 0.25rem;
+}
+
+.form-group.floating input:focus + label,
+.form-group.floating input:not(:placeholder-shown) + label,
+.form-group.floating textarea:focus + label,
+.form-group.floating textarea:not(:placeholder-shown) + label {
+  top: -0.625rem;
+  left: 0.625rem;
+  font-size: 0.75rem;
+  color: var(--primary-accent);
+}
+
+/* Error states */
+.error-field {
+  border-color: #f33 !important;
+}
+
+.error-message {
+  color: #f33;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+/* Form messages */
+.form-message {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  animation: slideDown 0.3s ease;
+}
+
+.form-message.error {
+  background-color: rgba(255, 51, 51, 0.1);
+  border-left: 4px solid #f33;
+  color: #f33;
+}
+
+.form-message.success {
+  background-color: rgba(76, 175, 80, 0.1);
+  border-left: 4px solid #4CAF50;
+  color: #4CAF50;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-1.25rem); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Character counter */
+.char-counter {
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+/* Submit button animation */
+button[type="submit"] {
+  position: relative;
+  overflow: hidden;
+}
+
+button[type="submit"]::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255,255,255,0.1);
+  transform: rotate(45deg);
+  transition: all var(--transition-normal);
+}
+
+button[type="submit"]:hover::after {
+  left: 100%;
+}
+
+/* Formspree-specific styles */
+.loading-icon {
+  display: none !important; /* Force hide initially */
+}
+
+button[type="submit"] .fa-spinner {
+  margin-left: 8px;
+  display: none; /* Hide spinner by default */
+}
+
+button[type="submit"].loading .fa-paper-plane {
+  display: none; /* Hide plane icon when loading */
+}
+
+button[type="submit"].loading .fa-spinner {
+  display: inline-block; /* Show spinner when loading */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Honeypot field (spam protection) */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+}
