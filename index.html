@@ -34,7 +34,7 @@
     <!-- Add this to the head section of index.html, right after the Font Awesome link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 </head>
-<body>
+<body data-theme="dark">
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
         <div class="canvas">
@@ -72,6 +72,10 @@
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <i class="fas fa-moon" id="moon-icon"></i>
+                <i class="fas fa-sun" id="sun-icon"></i>
+            </button>
         </div>
     </nav>
 

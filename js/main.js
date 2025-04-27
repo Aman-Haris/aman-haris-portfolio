@@ -5,6 +5,7 @@ import { initSkillsAccordion } from './modules/skills.js';
 import { initProjects } from './modules/projects.js';
 import { initExperience } from './modules/experience.js';
 import { initContactForm } from './modules/contact.js';
+import { initThemeToggle } from './modules/theme.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize animations
@@ -18,4 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initProjects();
     initExperience();
     initContactForm();
+    initThemeToggle();
 });
