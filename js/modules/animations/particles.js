@@ -56,25 +56,27 @@ class ParticleSystem {
             active: false
         };
 
-        // Throttled mousemove (60fps max)
-        this.throttleTimer = null;
-        document.addEventListener('mousemove', (e) => {
-            if (!this.throttleTimer) {
-                this.throttleTimer = setTimeout(() => {
-                    const rect = this.canvas.getBoundingClientRect();
-                    this.mouse.x = e.clientX - rect.left;
-                    this.mouse.y = e.clientY - rect.top;
-                    this.mouse.active = true;
-                    this.throttleTimer = null;
-                }, 16); // ~60fps
-            }
-        });
+        if (window.innerWidth >= 600) {
+            // Throttled mousemove (60fps max)
+            this.throttleTimer = null;
+            document.addEventListener('mousemove', (e) => {
+                if (!this.throttleTimer) {
+                    this.throttleTimer = setTimeout(() => {
+                        const rect = this.canvas.getBoundingClientRect();
+                        this.mouse.x = e.clientX - rect.left;
+                        this.mouse.y = e.clientY - rect.top;
+                        this.mouse.active = true;
+                        this.throttleTimer = null;
+                    }, 16); // ~60fps
+                }
+            });
 
-        document.addEventListener('mouseout', (e) => {
-            if (!e.relatedTarget || e.relatedTarget.nodeName === 'HTML') {
-                this.mouse.active = false;
-            }
-        });
+            document.addEventListener('mouseout', (e) => {
+                if (!e.relatedTarget || e.relatedTarget.nodeName === 'HTML') {
+                    this.mouse.active = false;
+                }
+            });
+        }
 
         // Debounced resize
         this.resizeTimer = null;
@@ -84,6 +86,7 @@ class ParticleSystem {
                 this.resizeCanvas();
                 this.config.particleCount = this.calculateParticleCount();
                 this.initParticles();
+                this.initEventListeners(); // Re-initialize event listeners on resize
             }, 200);
         });
     }
@@ -93,11 +96,11 @@ class ParticleSystem {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.updateParticles();
             this.drawConnections();
-            
-            if (this.mouse.active) {
+
+            if (this.mouse.active && window.innerWidth >= 600) {
                 this.drawMouseEffects();
             }
-            
+
             requestAnimationFrame(animate);
         };
         animate();
@@ -108,11 +111,11 @@ class ParticleSystem {
             // Update position
             p.x += p.vx;
             p.y += p.vy;
-            
+
             // Bounce off edges
             if (p.x < 0 || p.x > this.canvas.width / this.pixelRatio) p.vx *= -1;
             if (p.y < 0 || p.y > this.canvas.height / this.pixelRatio) p.vy *= -1;
-            
+
             // Draw particle
             this.drawParticle(p);
         });
@@ -121,23 +124,23 @@ class ParticleSystem {
     drawParticle(p) {
         this.ctx.beginPath();
         this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        
+
         // Calculate opacity based on distance to mouse
         const dx = this.mouse.x - p.x;
         const dy = this.mouse.y - p.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        const opacity = this.mouse.active 
-            ? Math.min(this.config.particleOpacityBase, 
+        const opacity = this.mouse.active && window.innerWidth >= 600
+            ? Math.min(this.config.particleOpacityBase,
                       this.config.particleOpacityBase * (1 - distance / this.config.mouseRadius))
             : this.config.particleOpacityBase * 0.7;
-                
+
         this.ctx.fillStyle = `rgba(108, 92, 231, ${Math.max(0.3, opacity)})`;
         this.ctx.fill();
     }
 
     drawConnections() {
-        const maxDistance = this.mouse.active 
-            ? this.config.mouseRadius 
+        const maxDistance = this.mouse.active && window.innerWidth >= 600
+            ? this.config.mouseRadius
             : this.config.defaultLineDistance;
 
         for (let i = 0; i < this.particles.length; i++) {
@@ -157,14 +160,14 @@ class ParticleSystem {
 
     drawConnectionLine(p1, p2, distance, maxDistance) {
         let opacity;
-        
-        if (this.mouse.active) {
-            const mouseDist1 = Math.sqrt(Math.pow(p1.x - this.mouse.x, 2) + 
+
+        if (this.mouse.active && window.innerWidth >= 600) {
+            const mouseDist1 = Math.sqrt(Math.pow(p1.x - this.mouse.x, 2) +
                              Math.pow(p1.y - this.mouse.y, 2));
-            const mouseDist2 = Math.sqrt(Math.pow(p2.x - this.mouse.x, 2) + 
+            const mouseDist2 = Math.sqrt(Math.pow(p2.x - this.mouse.x, 2) +
                              Math.pow(p2.y - this.mouse.y, 2));
 
-            if (mouseDist1 < this.config.mouseRadius || 
+            if (mouseDist1 < this.config.mouseRadius ||
                 mouseDist2 < this.config.mouseRadius) {
                 opacity = this.config.lineOpacityBase * (1 - distance / maxDistance);
                 this.drawLine(p1, p2, opacity, this.config.lineWidth);
@@ -188,10 +191,10 @@ class ParticleSystem {
         // Draw mouse follower particle
         this.ctx.beginPath();
         this.ctx.arc(
-            this.mouse.x, 
-            this.mouse.y, 
-            this.config.particleRadius * 2.0, 
-            0, 
+            this.mouse.x,
+            this.mouse.y,
+            this.config.particleRadius * 2.0,
+            0,
             Math.PI * 2
         );
         this.ctx.fillStyle = 'rgba(108, 92, 231, 1)';
@@ -202,9 +205,9 @@ class ParticleSystem {
             const dx = this.mouse.x - p.x;
             const dy = this.mouse.y - p.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
-            
+
             if (distance < this.config.mouseRadius) {
-                const opacity = this.config.lineOpacityBase * 
+                const opacity = this.config.lineOpacityBase *
                                (1 - distance / this.config.mouseRadius);
                 this.drawLine(
                     { x: this.mouse.x, y: this.mouse.y },
@@ -228,7 +231,7 @@ class ParticleSystem {
 export function initCanvasParticles() {
     try {
         new ParticleSystem('.connecting-dots');
-        
+
         // Force mouse active at start with center position
         setTimeout(() => {
             const canvas = document.querySelector('.connecting-dots');

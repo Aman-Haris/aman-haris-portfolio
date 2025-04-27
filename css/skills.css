@@ -1,154 +1,154 @@
 /* ===== Skills Section ===== */
 .skills-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.skills-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  position: relative;
+}
+
+.skill-category {
+  background-color: var(--secondary-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+/* Category Header */
+.category-header {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.category-header:hover {
+  background-color: var(--card-bg);
+}
+
+.category-icon {
+  font-size: 1.1rem;
+  color: var(--primary-accent);
+  margin-right: 0.75rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(108, 92, 231, 0.1);
+  border-radius: 50%;
+}
+
+.category-title {
+  flex: 1;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.category-toggle {
+  transition: transform 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.category-toggle.active {
+  transform: rotate(180deg);
+}
+
+/* Skill Items - Tightened Layout */
+.category-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease;
+  padding: 0 1.25rem;
+}
+
+.category-content.active {
+  max-height: 1000px;
+  padding: 0.5rem 1.25rem 1rem;
+}
+
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.35rem 0;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.skill-name {
+  flex: 1;
+  margin-right: 0.5rem; /* Reduced space before dots */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Dot-Based Skill Levels - Tight Layout */
+.skill-dots {
+  display: flex;
+  gap: 0.25rem;
+  flex-shrink: 0; /* Prevent dots from wrapping */
+}
+
+.skill-dots::before {
+  content: '●●●●●';
+  font-size: 0.8rem;
+  letter-spacing: 1px; /* Tighter dots */
+  color: var(--card-bg);
+}
+
+.skill-dots.expert::before {
+  color: #d4ac0d;
+}
+
+.skill-dots.advanced::before {
+  content: '●●●●○';
+  color: #d4ac0d;
+}
+
+.skill-dots.intermediate::before {
+  content: '●●●○○';
+  color: #d4ac0d;
+}
+
+/* Divider Lines */
+.skill-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  opacity: 0.2;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
   .skills-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    position: relative;
+      grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
   }
-  
-  .skill-category {
-    background-color: var(--secondary-bg);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-color);
-    overflow: hidden;
-  }
-  
-  /* Category Header */
-  .category-header {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem 1.25rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .category-header:hover {
-    background-color: var(--card-bg);
-  }
-  
-  .category-icon {
-    font-size: 1.1rem;
-    color: var(--primary-accent);
-    margin-right: 0.75rem;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(108, 92, 231, 0.1);
-    border-radius: 50%;
-  }
-  
-  .category-title {
-    flex: 1;
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-  
-  .category-toggle {
-    transition: transform 0.3s ease;
-    font-size: 0.9rem;
-  }
-  
-  .category-toggle.active {
-    transform: rotate(180deg);
-  }
-  
-  /* Skill Items - Tightened Layout */
-  .category-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s ease;
-    padding: 0 1.25rem;
-  }
-  
-  .category-content.active {
-    max-height: 1000px;
-    padding: 0.5rem 1.25rem 1rem;
-  }
-  
-  .skill-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.35rem 0;
-    font-size: 0.9rem;
-    position: relative;
-  }
-  
-  .skill-name {
-    flex: 1;
-    margin-right: 0.5rem; /* Reduced space before dots */
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  /* Dot-Based Skill Levels - Tight Layout */
-  .skill-dots {
-    display: flex;
-    gap: 0.25rem;
-    flex-shrink: 0; /* Prevent dots from wrapping */
-  }
-  
-  .skill-dots::before {
-    content: '●●●●●';
-    font-size: 0.8rem;
-    letter-spacing: 1px; /* Tighter dots */
-    color: var(--card-bg);
-  }
-  
-  .skill-dots.expert::before {
-    color: var(--primary-accent);
-  }
-  
-  .skill-dots.advanced::before {
-    content: '●●●●○';
-    color: var(--secondary-accent);
-  }
-  
-  .skill-dots.intermediate::before {
-    content: '●●●○○';
-    color: var(--tertiary-accent);
-  }
-  
-  /* Divider Lines */
-  .skill-item:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background-color: var(--border-color);
-    opacity: 0.2;
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 1024px) {
-    .skills-row {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .skills-row {
+}
+
+@media (max-width: 640px) {
+  .skills-row {
       grid-template-columns: 1fr;
-    }
-    
-    .category-header {
+  }
+
+  .category-header {
       padding: 0.5rem 1rem;
-    }
-    
-    .skill-item {
+  }
+
+  .skill-item {
       padding: 0.25rem 0;
       font-size: 0.85rem;
-    }
   }
+}

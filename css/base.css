@@ -123,6 +123,7 @@ ul, ol {
   color: var(--text-secondary);
   margin-bottom: var(--space-8);
   font-size: var(--text-lg);
+  margin-top: var(--space-4);
 }
 
 /* Buttons */
@@ -165,6 +166,7 @@ ul, ol {
   background-color: var(--card-bg);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+  color: var(--tertiary-accent);
 }
 
 .outline-btn {
