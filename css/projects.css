@@ -53,10 +53,6 @@
   transition: opacity 0.5s ease;
 }
 
-.project-card:hover .project-image img {
-  opacity: 0;
-}
-
 .project-card:hover .project-video {
   opacity: 1;
 }
