@@ -1,3 +1,23 @@
+@font-face {
+  font-family: 'Chillax-Regular';
+  src: url('/assets/fonts/Chillax_Complete/Fonts/WEB/fonts/Chillax-Semibold.woff') format('woff'),
+       url('/assets/fonts/Chillax_Complete/Fonts/WEB/fonts/Chillax-Semibold.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+  font-size: 100%;
+}
+
+@font-face {
+  font-family: 'Nunito-Regular';
+  src: url('/assets/fonts/Nunito_Complete/Fonts/WEB/fonts/Nunito-Regular.woff') format('woff'),
+       url('/assets/fonts/Nunito_Complete/Fonts/WEB/fonts/Nunito-Regular.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+  font-size: 100%;
+}
+
 :root {
   /* Dark Mode Colors */
   --primary-bg: #0f0f0f;
@@ -18,20 +38,19 @@
   --error-color: #ff6b6b;
 
   /* Typography */
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
-  --font-code: 'Fira Code', monospace;
+  --font-heading: 'Chillax-Regular', sans-serif;
+  --font-body: 'Nunito-Regular', sans-serif;
 
-  /* Font Sizes */
-  --text-xs: 0.75rem;    /* 12px */
-  --text-sm: 0.875rem;   /* 14px */
-  --text-base: 1rem;     /* 16px */
-  --text-lg: 1.125rem;   /* 18px */
-  --text-xl: 1.25rem;    /* 20px */
-  --text-2xl: 1.5rem;    /* 24px */
-  --text-3xl: 1.875rem;  /* 30px */
-  --text-4xl: 2.25rem;   /* 36px */
-  --text-5xl: 3rem;      /* 48px */
+  /* Original values with 10% increase */
+  --text-xs: 0.825rem;    /* 13.2px - was 12px */
+  --text-sm: 0.9625rem;   /* 15.4px - was 14px */
+  --text-base: 1.1rem;    /* 17.6px - was 16px */
+  --text-lg: 1.2375rem;   /* 19.8px - was 18px */
+  --text-xl: 1.375rem;    /* 22px - was 20px */
+  --text-2xl: 1.65rem;    /* 26.4px - was 24px */
+  --text-3xl: 2.0625rem;  /* 33px - was 30px */
+  --text-4xl: 2.475rem;   /* 39.6px - was 36px */
+  --text-5xl: 3.3rem;     /* 52.8px - was 48px */
 
   /* Spacing */
   --space-1: 0.25rem;    /* 4px */
