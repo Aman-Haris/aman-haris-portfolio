@@ -98,7 +98,7 @@ For your own deployment:
 
 * 📍 Bengaluru, India
 * 💼 AI | ML | GenAI Engineer
-* 📧 [amanharis@gmail.com](mailto:amanharis@gmail.com)
+* 📧 [amanharisofficial@protonmail.com](mailto:amanharisofficial@protonmail.com)
 * 🌐 [LinkedIn](https://linkedin.com/in/amanharis)
 
 ---
