@@ -77,7 +77,7 @@ MY PORTFOLIO/
 
 2. Open `index.html` in your browser or use Live Server in VSCode.
 
-3. (Optional) Replace video files in `/assets/videos` or resume in `/assets/resume`.
+3. Replace video files in `/assets/videos` or resume in `/assets/resume`.
 
 ---
 ## 🚀 Deployment
@@ -96,10 +96,10 @@ For your own deployment:
 
 **Aman Haris**
 
-📍 Bengaluru, India
-💼 AI | ML | GenAI Engineer
-📧 [amanharis@gmail.com](mailto:amanharis@gmail.com)
-🌐 [LinkedIn](https://linkedin.com/in/amanharis)
+* 📍 Bengaluru, India
+* 💼 AI | ML | GenAI Engineer
+* 📧 [amanharis@gmail.com](mailto:amanharis@gmail.com)
+* 🌐 [LinkedIn](https://linkedin.com/in/amanharis)
 
 ---
 
