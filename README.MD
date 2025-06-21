@@ -52,7 +52,7 @@ MY PORTFOLIO/
 │
 └── index.html               # Landing page
 
-````
+```
 
 ---
 
