@@ -105,4 +105,4 @@ For your own deployment:
 
 ## 📜 License
 
-This portfolio is open-source under the MIT License. Feel free to fork and personalize it for your own use!
+This portfolio is open-source under the MIT License. Feel free to fork and personalize it for your use! But you need to strictly give me credits in your website if it is deployed.
