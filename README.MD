@@ -70,10 +70,10 @@ MY PORTFOLIO/
 ## 🛠️ How to Run Locally
 
 1. Clone the repo:
-   ```bash
+   ```
    git clone https://github.com/yourusername/portfolio.git
    cd portfolio
-```
+   ```
 
 2. Open `index.html` in your browser or use Live Server in VSCode.
 
