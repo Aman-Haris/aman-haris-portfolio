@@ -27,10 +27,10 @@
 
   /* Accents — 2 only */
   --primary-accent:   #7c3aed;
-  --secondary-accent: #06b6d4;
+  --secondary-accent: #f59e0b;
 
   --text-primary:   #f1f5f9;
-  --text-secondary: #94a3b8;
+  --text-secondary: #b0bac8;
   --text-muted:     #475569;
 
   --success-color: #00b894;
@@ -46,13 +46,13 @@
 
   /* Glow */
   --glow-primary:   0 0 20px rgba(124, 58, 237, 0.35);
-  --glow-secondary: 0 0 20px rgba(6, 182, 212, 0.35);
+  --glow-secondary: 0 0 20px rgba(245, 158, 11, 0.35);
   --glow-subtle:    0 0 40px rgba(124, 58, 237, 0.12);
 
   /* Accent utilities */
-  --accent-bg-subtle:   rgba(124, 58, 237, 0.12);
-  --accent-bg-hover:    rgba(124, 58, 237, 0.25);
-  --accent-cyan-subtle: rgba(6, 182, 212, 0.12);
+  --accent-bg-subtle:    rgba(124, 58, 237, 0.12);
+  --accent-bg-hover:     rgba(124, 58, 237, 0.25);
+  --accent-amber-subtle: rgba(245, 158, 11, 0.12);
 
   /* Typography */
   --font-heading: 'Chillax-Regular', sans-serif;
@@ -119,18 +119,18 @@
 }
 
 [data-theme="light"] {
-  --primary-bg:   #f8fafc;
-  --secondary-bg: #f1f5f9;
-  --card-bg:      #e2e8f0;
-  --border-color: #cbd5e1;
+  --primary-bg:   #ecedf4;
+  --secondary-bg: #e4e5ee;
+  --card-bg:      #f4f5fb;
+  --border-color: #c4c9dc;
 
   --primary-accent:   #7c3aed;
-  --secondary-accent: #06b6d4;
+  --secondary-accent: #d97706;
 
-  --glass-bg:     rgba(241, 245, 249, 0.7);
-  --glass-border: rgba(124, 58, 237, 0.15);
+  --glass-bg:     rgba(228, 229, 238, 0.82);
+  --glass-border: rgba(124, 58, 237, 0.18);
 
   --text-primary:   #0f172a;
-  --text-secondary: #475569;
-  --text-muted:     #94a3b8;
+  --text-secondary: #374151;
+  --text-muted:     #6b7280;
 }

@@ -121,7 +121,7 @@
 
 .skill-dots.advanced::before {
   content: '●●●●○';
-  color: rgba(6, 182, 212, 0.6);
+  color: rgba(245, 158, 11, 0.7);
   opacity: 1;
 }
 
