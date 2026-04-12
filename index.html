@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Aman Haris - AI/ML Engineer & Software Developer Portfolio">
-    <meta name="keywords" content="Aman Haris, AI, ML, Software Engineer, Portfolio, Machine Learning, Artificial Intelligence">
+    <meta name="keywords" content="Aman Haris, AI, ML, GenAI, Software Engineer, Portfolio">
     <meta name="author" content="Aman Haris">
-    
-    <title>Aman Haris | AI/ML Engineer & Software Developer</title>
-    
-    <!-- Favicon -->
+    <title>Aman Haris | AI/ML Engineer</title>
+
     <link rel="icon" type="image/png" href="assets/icons/favicon1.png">
-    
-    <!-- CSS Files -->
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/bento.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/experience.css">
     <link rel="stylesheet" href="css/skills.css">
@@ -23,1004 +21,990 @@
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/animations.css">
-    
-    <!-- Font Awesome for icons -->
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Add this to the head section of index.html, right after the Font Awesome link -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 </head>
 <body data-theme="dark">
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-        <div class="canvas">
-            <canvas class="connecting-dots"></canvas>
-        </div>
-        <div class="hero-content">
-            <h1 class="name">Hello, I'm Aman Haris<span class="accent">.</span></h1>
-            <h2 class="title">AI ML GenAI Automation Solutions Engineer</h2>
-            <div class="hero-buttons">
-                <a href="#about" class="btn primary-btn">View my work <i class="fas fa-arrow-down"></i></a>
-                <a href="assets/resume/Aman Haris.pdf" class="btn secondary-btn" target="_blank">Download CV</a>
-                <a href="#contact" class="btn outline-btn">Contact Me</a>
-            </div>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/aman-haris" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/aman-haris" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="mailto:amanharisofficial@protonmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Navigation -->
-    <nav id="navbar" class="navbar">
-        <div class="container">
-            <div class="logo">
-                <a href="#hero">Aman Haris<span class="accent">.</span></a>
+    <!-- Slim sticky header -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="#" class="logo" aria-label="Aman Haris">AH<span class="accent">.</span></a>
+            <div class="header-actions">
+                <a href="https://linkedin.com/in/aman-haris" target="_blank" rel="noopener" class="header-icon-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/aman-haris" target="_blank" rel="noopener" class="header-icon-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="assets/resume/Aman Haris.pdf" target="_blank" rel="noopener" class="header-cv-btn">CV <i class="fas fa-download"></i></a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="moon-icon"></i>
+                    <i class="fas fa-sun" id="sun-icon"></i>
+                </button>
             </div>
-            <ul class="nav-links">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- ===================== BENTO GRID ===================== -->
+    <main class="bento-grid">
+
+        <!-- ABOUT (featured 2×2) -->
+        <div class="bento-card card-about glass-card" data-expandable data-target="expand-about" role="button" tabindex="0" aria-label="About Me — click to expand">
+            <canvas class="connecting-dots"></canvas>
+            <div class="about-photo-wrap" title="Click to flip">
+                <img src="assets/images/test.jpeg" alt="Aman Haris" class="about-photo is-active">
+                <img src="assets/images/aman-casual.jpg" alt="Aman Haris casual" class="about-photo is-casual">
+                <span class="about-photo-hint">flip</span>
             </div>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
-                <i class="fas fa-moon" id="moon-icon"></i>
-                <i class="fas fa-sun" id="sun-icon"></i>
+            <div class="about-body">
+                <div>
+                    <p class="about-eyebrow">AI / ML / GenAI Engineer</p>
+                    <h1 class="about-name">Aman Haris<span class="accent">.</span></h1>
+                </div>
+                <p class="about-bio">I build GenAI and ML systems that ship — RAG chatbots, code converters, and automation tools used by real engineering teams at Tessolve Semiconductors.</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Years AI/ML</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">7+</span>
+                        <span class="stat-label">Production Tools</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">90%</span>
+                        <span class="stat-label">Automation</span>
+                    </div>
+                </div>
+                <div class="info-items">
+                    <div class="info-item"><i class="fas fa-map-marker-alt"></i> Bengaluru, India</div>
+                    <div class="info-item"><i class="fas fa-language"></i> English · Hindi · Urdu · Kannada · Tamil</div>
+                </div>
+                <div class="about-social">
+                    <a href="https://linkedin.com/in/aman-haris" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/aman-haris" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:amanharisofficial@protonmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="bento-card card-skills glass-card" data-expandable data-target="expand-skills" role="button" tabindex="0" aria-label="Skills — click to expand">
+            <p class="card-label">Skills</p>
+            <div class="skills-tag-cloud">
+                <span class="skill-tag ai">Generative AI</span>
+                <span class="skill-tag ai">RAG</span>
+                <span class="skill-tag ai">Prompt Eng.</span>
+                <span class="skill-tag ai">NLP</span>
+                <span class="skill-tag ai">Machine Learning</span>
+                <span class="skill-tag code">Python</span>
+                <span class="skill-tag code">FastAPI</span>
+                <span class="skill-tag code">REST APIs</span>
+                <span class="skill-tag cloud">Azure AI</span>
+                <span class="skill-tag cloud">Docker</span>
+                <span class="skill-tag cloud">CI/CD</span>
+                <span class="skill-tag soft">Leadership</span>
+                <span class="skill-tag soft">Problem Solving</span>
+                <span class="skill-tag soft">Collaboration</span>
+            </div>
+            <p class="card-label" style="margin-top: var(--space-3)">Tools</p>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/python" alt="Python" class="tool-icon">
+                    <span class="tool-name">Python</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/fastapi" alt="FastAPI" class="tool-icon">
+                    <span class="tool-name">FastAPI</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/microsoftazure" alt="Azure" class="tool-icon">
+                    <span class="tool-name">Azure</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/docker" alt="Docker" class="tool-icon">
+                    <span class="tool-name">Docker</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/openai" alt="OpenAI" class="tool-icon">
+                    <span class="tool-name">OpenAI</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/huggingface" alt="HuggingFace" class="tool-icon">
+                    <span class="tool-name">HuggingFace</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/pytorch" alt="PyTorch" class="tool-icon">
+                    <span class="tool-name">PyTorch</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/scikitlearn" alt="scikit-learn" class="tool-icon">
+                    <span class="tool-name">sklearn</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/numpy" alt="NumPy" class="tool-icon">
+                    <span class="tool-name">NumPy</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/pandas" alt="Pandas" class="tool-icon">
+                    <span class="tool-name">Pandas</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/streamlit" alt="Streamlit" class="tool-icon">
+                    <span class="tool-name">Streamlit</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/jupyter" alt="Jupyter" class="tool-icon">
+                    <span class="tool-name">Jupyter</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/git" alt="Git" class="tool-icon">
+                    <span class="tool-name">Git</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/github" alt="GitHub" class="tool-icon">
+                    <span class="tool-name">GitHub</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/visualstudiocode" alt="VS Code" class="tool-icon">
+                    <span class="tool-name">VS Code</span>
+                </div>
+                <div class="tool-item">
+                    <img src="assets/images/logos/langchain.png" alt="Langchain" class="tool-icon tool-icon-placeholder">
+                    <span class="tool-name">Langchain</span>
+                </div>
+                <div class="tool-item">
+                    <img src="assets/images/logos/pinecone.png" alt="Pinecone" class="tool-icon tool-icon-placeholder">
+                    <span class="tool-name">Pinecone</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="bento-card card-exp glass-card" data-expandable data-target="expand-exp" role="button" tabindex="0" aria-label="Experience — click to expand">
+            <p class="card-label">Experience</p>
+            <div class="exp-current">
+                <p class="exp-role">Software Engineer 1</p>
+                <p class="exp-company">Tessolve Semiconductors</p>
+                <p class="exp-tenure"><i class="fas fa-calendar-alt"></i> Feb 2024 – Present</p>
+                <p class="exp-achievement">Led development of 7+ production AI tools, reducing manual workflows by up to 90%.</p>
+            </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="bento-card card-edu glass-card" data-expandable data-target="expand-edu" role="button" tabindex="0" aria-label="Education — click to expand">
+            <p class="card-label">Education</p>
+            <div class="edu-entry">
+                <p class="edu-degree">MSc Artificial Intelligence</p>
+                <p class="edu-institution"><i class="fas fa-university"></i> Heriot-Watt University · Edinburgh</p>
+                <p class="edu-meta">Sept 2022 – Dec 2023</p>
+            </div>
+            <div class="edu-entry">
+                <p class="edu-degree">BE Computer Science</p>
+                <p class="edu-institution"><i class="fas fa-university"></i> AMC Engineering College · Bengaluru</p>
+                <p class="edu-meta">Aug 2018 – Aug 2022</p>
+            </div>
+        </div>
+
+        <!-- PROJECT CARD 1: ASPICE Studio (NDA) -->
+        <div class="bento-card card-p1 card-project glass-card" data-expandable data-target="expand-p6" role="button" tabindex="0" aria-label="ASPICE Studio project — click to expand">
+            <p class="project-card-icon">🚗</p>
+            <h3 class="project-card-title">ASPICE Studio</h3>
+            <p class="project-card-desc">GenAI tool generating interface tables &amp; UML diagrams from C codebases for automotive ASPICE SWE 3.</p>
+            <span class="project-card-metric">90% development time saved</span>
+            <div class="project-card-tags">
+                <span class="tech-tag">GenAI</span>
+                <span class="tech-tag">Prompt Eng.</span>
+                <span class="tech-tag">ASPICE</span>
+                <span class="tech-tag">UML</span>
+            </div>
+        </div>
+
+        <!-- PROJECT CARD 2: Schematic Verification Tool (NDA) -->
+        <div class="bento-card card-p2 card-project glass-card" data-expandable data-target="expand-p14" role="button" tabindex="0" aria-label="Schematic Verification Tool project — click to expand">
+            <p class="project-card-icon">🔌</p>
+            <h3 class="project-card-title">Schematic Verification Tool</h3>
+            <p class="project-card-desc">AI tool to verify tester board–chip connections from schematics, flagging discrepancies automatically.</p>
+            <span class="project-card-metric">60% manual effort reduced</span>
+            <div class="project-card-tags">
+                <span class="tech-tag">GenAI</span>
+                <span class="tech-tag">Computer Vision</span>
+                <span class="tech-tag">Python</span>
+            </div>
+        </div>
+
+        <!-- PROJECT CARD 3: ADAS (has image) -->
+        <div class="bento-card card-p3 card-project glass-card has-image"
+             style="background-image: url('assets/images/projects/adas-system.png')"
+             data-expandable data-target="expand-p3" role="button" tabindex="0" aria-label="ADAS project — click to expand">
+            <h3 class="project-card-title">ADAS for Low Visibility</h3>
+            <p class="project-card-desc">Real-time ML safety system using object detection for poor visibility conditions.</p>
+            <div class="project-card-tags">
+                <span class="tech-tag">Computer Vision</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">ML</span>
+            </div>
+        </div>
+
+        <!-- ALL PROJECTS -->
+        <div class="bento-card card-all glass-card" data-expandable data-target="expand-all" role="button" tabindex="0" aria-label="Explore all projects — click to expand">
+            <div class="all-projects-text">
+                <h3>All Projects</h3>
+                <p>8 professional &nbsp;·&nbsp; 7 personal</p>
+            </div>
+            <span class="all-projects-arrow">↗</span>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="bento-card card-contact glass-card" data-expandable data-target="expand-contact" role="button" tabindex="0" aria-label="Contact — click to expand">
+            <p class="card-label">Get in Touch</p>
+            <h3 class="contact-card-heading">Let's Build Something.</h3>
+            <p class="contact-card-sub">Open to AI/ML engineering roles and innovative tech opportunities.</p>
+            <div class="contact-card-links">
+                <a href="mailto:amanharisofficial@protonmail.com" class="contact-card-link">
+                    <i class="fas fa-envelope"></i> amanharisofficial@protonmail.com
+                </a>
+                <a href="https://linkedin.com/in/aman-haris" class="contact-card-link" target="_blank" rel="noopener">
+                    <i class="fab fa-linkedin-in"></i> linkedin.com/in/aman-haris
+                </a>
+                <a href="https://github.com/aman-haris" class="contact-card-link" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i> github.com/aman-haris
+                </a>
+            </div>
+            <button class="contact-cta" aria-label="Open contact form">
+                Send a Message <i class="fas fa-paper-plane"></i>
             </button>
         </div>
-    </nav>
 
-    <!-- About Section -->
-    <section id="about" class="about-section section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="assets/images/test.jpeg" alt="Aman Haris" class="profile-img">
-                </div>
-                
-                <div class="about-info">
-                    <p class="about-intro">Hi there! I’m Aman Haris , a Software Engineer with a passion for AI, GenAI, ML, and Automation. Over the years, I’ve worked on exciting projects like building intelligent chatbots, developing code conversion tools, and creating scalable AI solutions that drive innovation and improve efficiency. From automating workflows to crafting cutting-edge applications, I love solving complex problems and making a real impact through technology.</p>
-                    
-                    <p class="about-personal">Outside of work, I’m a huge fan of cricket, football, and Formula 1, and I love listening to music while tinkering on the piano. I’m also a foodie at heart—I enjoy cooking up a storm in the kitchen and trying out new recipes. And when I need a break from tech, I spend time with my two adorable pet dogs, who are my ultimate stress-busters. Life’s all about balance, and I believe that  <span class="accent">"The best way to predict the future is to create it."</span> That philosophy keeps me motivated every day.</p>
-                    
-                    <div class="about-highlights">
-                        <div class="highlight-item">
-                            <i class="fas fa-brain"></i>
-                            <h4>AI/ML Expert</h4>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-code"></i>
-                            <h4>Full-Stack Developer</h4>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-users"></i>
-                            <h4>Team Collaborator</h4>
-                        </div>
-                    </div>
-                    
-                    <div class="languages">
-                        <h4>Languages I Speak :</h4>
-                        <ul class="language-list">
-                            <li><span class="language">English</span> <span class="proficiency">(Professional)</span></li>
-                            <li><span class="language">Malayalam</span> <span class="proficiency">(Native)</span></li>
-                            <li><span class="language">Kannada</span> <span class="proficiency">(Fluent)</span></li>
-                            <li><span class="language">Hindi</span> <span class="proficiency">(Fluent)</span></li>
-                            <li><span class="language">Tamil</span> <span class="proficiency">(Conversational)</span></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="about-cta">
-                        <a href="#contact" class="btn primary-btn">Leave a message <i class="fas fa-paper-plane"></i></a>
-                        <a href="#projects" class="btn secondary-btn">View Projects <i class="fas fa-project-diagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience-section section">
-        <div class="container">
-        <h2 class="section-title">Experience</h2>
-        <p class="section-subtitle">My academic and professional journey</p>
-        
-        <div class="qualification-tabs">
-            <div class="qualification-button button--flex active" data-target="academic">
-            <i class="fas fa-graduation-cap qualification-icon"></i>
-            Academic
-            </div>
-            <div class="qualification-button button--flex" data-target="professional">
-            <i class="fas fa-briefcase qualification-icon"></i>
-            Professional
-            </div>
-        </div>
-        
-        <div class="qualification-sections">
-            <!-- Academic Experience -->
-            <div class="qualification-content academic active">
-                <!-- First item (left side) -->
-                <div class="qualification-data">
-                    <div class="qualification-left">
-                        <h3 class="qualification-title">MSc Artificial Intelligence</h3>
-                        <span class="qualification-subtitle">Heriot-Watt University, Edinburgh</span>
-                        <div class="qualification-calendar">
-                            <i class="fas fa-calendar-alt"></i>
-                            Sept 2022 - Dec 2023
-                        </div>
-                    </div>
-                    <div>
-                        <span class="qualification-rounder"></span>
-                        <span class="qualification-line"></span>
-                    </div>
-                    <div></div> <!-- Empty div for right side -->
-                </div>
-                <!-- Second item (right side) -->
-                <div class="qualification-data">
-                    <div></div> <!-- Empty div for left side -->
-                    <div>
-                        <span class="qualification-rounder"></span>
-                        <span class="qualification-line"></span>
-                    </div>
-                    <div class="qualification-right">
-                        <h3 class="qualification-title">BE in Computer Science</h3>
-                        <span class="qualification-subtitle">AMC Engineering College, Bengaluru</span>
-                        <div class="qualification-calendar">
-                            <i class="fas fa-calendar-alt"></i>
-                            Aug 2018 - Aug 2022
-                        </div>
-                    </div>
-                </div>
-                <!-- Third item (left side) -->
-                <div class="qualification-data">
-                    <div class="qualification-left">
-                        <h3 class="qualification-title">Class XII</h3>
-                        <span class="qualification-subtitle">Physics, Chemistry, Maths, Computer Science | Christ Academy, Bengaluru</span>
-                        <div class="qualification-calendar">
-                            <i class="fas fa-calendar-alt"></i>
-                            May 2016 - May 2018
-                        </div>
-                    </div>
-                    <div>
-                        <span class="qualification-rounder"></span>
-                        <span class="qualification-line"></span>
-                    </div>
-                    <div></div> <!-- Empty div for right side -->
-                </div>
-                <!-- Fourth item (right side) -->
-                <div class="qualification-data">
-                    <div></div> <!-- Empty div for left side -->
-                    <div>
-                        <span class="qualification-rounder"></span>
-                        <span class="qualification-line"></span>
-                    </div>
-                    <div class="qualification-right">
-                        <h3 class="qualification-title">Class X</h3>
-                        <span class="qualification-subtitle">Indian Certificate of Secondary Education | St.Francis School, Bengaluru</span>
-                        <div class="qualification-calendar">
-                            <i class="fas fa-calendar-alt"></i>
-                            2016
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <!-- Professional Experience -->
-            <div class="qualification-content professional">
-                <!-- First item (left side) -->
-                <div class="qualification-data">
-                    <div class="qualification-left">
-                        <h3 class="qualification-title">Software Engineer 1</h3>
-                        <span class="qualification-subtitle">Tessolve Semiconductors Pvt Ltd</span>
-                        <div class="qualification-calendar">
-                            <i class="fas fa-calendar-alt"></i>
-                            Feb 2024 - Present
-                        </div>
-                        <div class="qualification-details">
-                            <p>AI/ML Expertise : Built AI tools driving efficiency.</p>
-                            <p>Technical Leadership : Led SDL, CI/CD workflows and Azure Implementation.</p>
-                            <p>Cross-Functional Collaboration : Delivered tailored AI solutions for various BUs.</p>
-                            <p>Automation & Optimization : Reduced manual tasks by up to 90%.</p>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="qualification-rounder"></span>
-                        <span class="qualification-line"></span>
-                    </div>
-                    <div></div> <!-- Empty div for right side -->
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section section">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <p class="section-subtitle">My technical and non-technical expertise</p>
-            
-            <div class="skills-grid">
-                <!-- Row 1 -->
-                <div class="skills-row">
-                    <!-- AI/ML Technologies -->
-                    <div class="skill-category" id="ai-ml-category">
-                        <div class="category-header">
-                            <div class="category-icon"><i class="fas fa-brain"></i></div>
-                            <h3 class="category-title">AI/ML</h3>
-                            <div class="category-toggle"><i class="fas fa-chevron-down"></i></div>
-                        </div>
-                        <div class="category-content">
-                            <div class="skill-item">
-                                <span>Generative AI</span>
-                                <div class="skill-dots expert"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Prompt Engineering</span>
-                                <div class="skill-dots expert"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>RAG</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>NLP</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Computer Vision</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Programming -->
-                    <div class="skill-category" id="programming-category">
-                        <div class="category-header">
-                            <div class="category-icon"><i class="fas fa-code"></i></div>
-                            <h3 class="category-title">Programming</h3>
-                            <div class="category-toggle"><i class="fas fa-chevron-down"></i></div>
-                        </div>
-                        <div class="category-content">
-                            <div class="skill-item">
-                                <span>Python</span>
-                                <div class="skill-dots expert"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>FastAPI</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>SQL</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>HTML/CSS/JS</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>C++</span>
-                                <div class="skill-dots intermediate"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Cloud & DevOps -->
-                    <div class="skill-category" id="cloud-devops-category">
-                        <div class="category-header">
-                            <div class="category-icon"><i class="fas fa-cloud"></i></div>
-                            <h3 class="category-title">Cloud & DevOps</h3>
-                            <div class="category-toggle"><i class="fas fa-chevron-down"></i></div>
-                        </div>
-                        <div class="category-content">
-                            <div class="skill-item">
-                                <span>Azure AI Services</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Azure Web App and Function App Services</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Azure Container Registry</span>
-                                <div class="skill-dots intermediate"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Azure Entra ID</span>
-                                <div class="skill-dots intermediate"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Docker</span>
-                                <div class="skill-dots intermediate"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Row 2 -->
-                <div class="skills-row">
-                    <!-- Frameworks -->
-                    <div class="skill-category">
-                        <div class="category-header" id="frameworks-category">
-                            <div class="category-icon"><i class="fas fa-layer-group"></i></div>
-                            <h3 class="category-title">Frameworks</h3>
-                            <div class="category-toggle"><i class="fas fa-chevron-down"></i></div>
-                        </div>
-                        <div class="category-content">
-                            <div class="skill-item">
-                                <span>Langchain</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Huggingface</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>OpenAI</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Pinecone</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Streamlit</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Tools -->
-                    <div class="skill-category">
-                        <div class="category-header" id="tools-category">
-                            <div class="category-icon"><i class="fas fa-tools"></i></div>
-                            <h3 class="category-title">Tools</h3>
-                            <div class="category-toggle"><i class="fas fa-chevron-down"></i></div>
-                        </div>
-                        <div class="category-content">
-                            <div class="skill-item">
-                                <span>VS Code</span>
-                                <div class="skill-dots expert"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Git</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Figma</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Postman</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>PowerBI</span>
-                                <div class="skill-dots intermediate"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Professional -->
-                    <div class="skill-category" id="professional-category">
-                        <div class="category-header">
-                            <div class="category-icon"><i class="fas fa-user-tie"></i></div>
-                            <h3 class="category-title">Professional</h3>
-                            <div class="category-toggle"><i class="fas fa-chevron-down"></i></div>
-                        </div>
-                        <div class="category-content">
-                            <div class="skill-item">
-                                <span>Technical Leadership</span>
-                                <div class="skill-dots expert"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Process Optimization</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Cross-Functional Collab</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Project Management</span>
-                                <div class="skill-dots advanced"></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>Continuous Learning</span>
-                                <div class="skill-dots expert"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects-section section">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <p class="section-subtitle">My professional and personal projects</p>
-            
-            <div class="project-tabs">
-                <button class="tab-btn" data-target="personal-projects">
-                    <i class="fas fa-user qualification-icon"></i> Personal
-                </button>
-                <button class="tab-btn active" data-target="professional-projects">
-                    <i class="fas fa-briefcase qualification-icon"></i> Professional
-                </button>
-            </div>
-            
-            <div class="project-slider">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <!-- Professional Project 1 -->
-                        <div class="swiper-slide project-card professional-projects">
-                            <div class="project-image">
-                                <img src="assets/images/projects/rag-chatbot.jpg" alt="RAG-based Chatbot">
-                                <video class="project-video" loop muted>
-                                    <source src="assets/videos/rag-chatbot-demo.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="project-info">
-                                <h3>RAG-based Chatbot</h3>
-                                <p>Architected and deployed a chatbot system using Langchain, OpenAI, Azure, and Pinecone, enhancing cross-departmental information retrieval by 85%.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">Langchain</span>
-                                    <span class="tech-tag">OpenAI</span>
-                                    <span class="tech-tag">Azure</span>
-                                    <span class="tech-tag">Pinecone</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="btn view-btn">
-                                        <i class="fas fa-info-circle"></i> Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Professional Project 2 -->
-                        <div class="swiper-slide project-card professional-projects">
-                            <div class="project-image">
-                                <img src="assets/images/projects/training-chatbot.jpg" alt="Session-Memory Training Chatbot">
-                                <video class="project-video" loop muted>
-                                    <source src="assets/videos/training-chatbot-demo.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="project-info">
-                                <h3>Session-Memory Training Chatbot</h3>
-                                <p>Engineered an intelligent chatbot for technical training that improved engineering onboarding efficiency by 75% and reduced training time.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">GenAI</span>
-                                    <span class="tech-tag">Azure</span>
-                                    <span class="tech-tag">Python</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="btn view-btn">
-                                        <i class="fas fa-info-circle"></i> Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Professional Project 3 -->
-                        <div class="swiper-slide project-card professional-projects">
-                            <div class="project-image">
-                                <img src="assets/images/projects/code-converter.jpg" alt="ArchShift Code Converter">
-                                <video class="project-video" loop muted>
-                                    <source src="assets/videos/code-converter-demo.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="project-info">
-                                <h3>ArchShift Code Converter and Generator</h3>
-                                <p>Pioneered a tool leveraging proprietary LLM techniques to transform ARM platform C++ code to RISC-V platform C code, achieving 95% code accuracy and reducing migration time by 90%. The tool could also generate RISC-V codes, achieving 95% code accuracy and reducing development time by 75%.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">GenAI</span>
-                                    <span class="tech-tag">Prompt Engineering</span>
-                                    <span class="tech-tag">Python</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="btn view-btn">
-                                        <i class="fas fa-info-circle"></i> Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Professional Project 4 -->
-                        <div class="swiper-slide project-card professional-projects">
-                            <div class="project-image">
-                                <img src="assets/images/projects/code-converter.jpg" alt="Assertify">
-                                <video class="project-video" loop muted>
-                                    <source src="assets/videos/assertify.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="project-info">
-                                <h3>Assertify</h3>
-                                <p>Developed an innovative LLM-powered tool that automates the conversion between English and SystemVerilog Assertions, reducing manual verification effort by 40% and improving code quality.
-                                </p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">GenAI</span>
-                                    <span class="tech-tag">Prompt Engineering</span>
-                                    <span class="tech-tag">Python</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="btn view-btn">
-                                        <i class="fas fa-info-circle"></i> Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-            
-                        <!-- Professional Project 5 -->
-                        <div class="swiper-slide project-card professional-projects">
-                            <div class="project-image">
-                                <img src="assets/images/projects/code-converter.jpg" alt="Resume Analyitcs Tool">
-                                <video class="project-video" loop muted>
-                                    <source src="assets/videos/ats.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="project-info">
-                                <h3>Resume Analyitcs Tool</h3>
-                                <p>Created an AI-powered ATS solution that compares resumes to job descriptions, calculates match percentages, and generates profile summaries, improving recruitment efficiency by 75%.
-                                </p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">GenAI</span>
-                                    <span class="tech-tag">Prompt Engineering</span>
-                                    <span class="tech-tag">Python</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="btn view-btn">
-                                        <i class="fas fa-info-circle"></i> Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Professional Project 6 -->
-                        <div class="swiper-slide project-card professional-projects">
-                            <div class="project-image">
-                                <img src="assets/images/projects/code-converter.jpg" alt="ASPICE Studio">
-                                <video class="project-video" loop muted>
-                                    <source src="assets/videos/ats.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="project-info">
-                                <h3>ASPICE Studio</h3>
-                                <p>Engineered a GenAI tool to assist automotive embedded engineers to generate interface table and UML diagrams from the C codebase in the SWE 3 phase of ASPICE. The tool helped reduce the development time by 90%.
-                                </p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">GenAI</span>
-                                    <span class="tech-tag">Prompt Engineering</span>
-                                    <span class="tech-tag">Python</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="btn view-btn">
-                                        <i class="fas fa-info-circle"></i> Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Professional Project 7 -->
-                        <div class="swiper-slide project-card professional-projects">
-                            <div class="project-image">
-                                <img src="assets/images/projects/code-converter.jpg" alt="Veriplan">
-                                <video class="project-video" loop muted>
-                                    <source src="assets/videos/ats.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="project-info">
-                                <h3>Veriplan</h3>
-                                <p>Developed a RAG tool that streamlines verification planning across various levels with guided workflows and intelligent prompts. This tool enables DV Engineers to create test plan and manage comprehensive coverage with minimal manual effort.
-                                </p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">GenAI</span>
-                                    <span class="tech-tag">Prompt Engineering</span>
-                                    <span class="tech-tag">Python</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="btn view-btn">
-                                        <i class="fas fa-info-circle"></i> Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Professional Project 6 -->
-                        <!-- <div class="swiper-slide project-card professional-projects">
-                            <div class="project-image">
-                                <img src="assets/images/projects/code-converter.jpg" alt="Sales Suite & Marketing Suite">
-                                <video class="project-video" loop muted>
-                                    <source src="assets/videos/ats.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="project-info">
-                                <h3>Sales Suite & Marketing Suite</h3>
-                                <p>Developed GenAI applications enabling teams to generate high-quality presentations and marketing materials from PDF inputs, reducing content creation time by 60%. It also has a grammar improvement bot and AI Agents doing various tasks such as fetching industry trends, company information, etc.
-                                </p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">GenAI</span>
-                                    <span class="tech-tag">Prompt Engineering</span>
-                                    <span class="tech-tag">Python</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="btn view-btn">
-                                        <i class="fas fa-info-circle"></i> Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div> -->
-                        
-                        <!-- Personal Project 1 -->
-                        <div class="swiper-slide project-card personal-projects">
-                            <div class="project-image">
-                                <img src="assets/images/projects/adas-system.png" alt="ADAS System">
-                                <video class="project-video" loop muted autoplay controls>
-                                    <source src="assets/videos/adas-demo.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="project-info">
-                                <h3>ADAS for Low Visibility</h3>
-                                <p>Developed an advanced machine learning system that enhances rider safety during poor visibility conditions using real-time object detection.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">Computer Vision</span>
-                                    <span class="tech-tag">Python</span>
-                                    <span class="tech-tag">ML</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/Aman-Haris/ADAS-with-Object-Detection-and-Tracking-for-Low-Visibility-Conditions" target="_blank" class="btn github-btn">
-                                        <i class="fab fa-github"></i> Code
-                                    </a>
-                                    <a href="#" class="btn view-btn">
-                                        <i class="fas fa-info-circle"></i> Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Personal Project 2 -->
-                        <div class="swiper-slide project-card personal-projects">
-                            <div class="project-image">
-                                <img src="assets/images/projects/sentient-sip.png" alt="The Sentient Sip">
-                                <video class="project-video" loop muted>
-                                    <source src="assets/videos/sentient-sip.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="project-info">
-                                <h3>The Sentient Sip</h3>
-                                <p>An AI-powered café where Rita, your snarky digital waiter, serves up conversation alongside imaginary coffee. Built with Mistral AI and Python.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">GenAI</span>
-                                    <span class="tech-tag">Prompt Engineering</span>
-                                    <span class="tech-tag">Pygame</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/Aman-Haris/The-Sentient-Sip" target="_blank" class="btn github-btn">
-                                        <i class="fab fa-github"></i> Code
-                                    </a>
-                                    <a href="#" class="btn view-btn">
-                                        <i class="fas fa-info-circle"></i> Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Personal Project 3 -->
-                        <div class="swiper-slide project-card personal-projects">
-                            <div class="project-image">
-                                <img src="assets/images/projects/mattrix-website.png" alt="Mattrix Auto Corp Website">
-                            </div>
-                            <div class="project-info">
-                                <h3>Mattrix Auto Corp Website</h3>
-                                <p>Designed and developed a business website for Mattrix Auto Corp using HTML, CSS, and JS. This website increased the company's visibility and sales enquiries by 30%.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">HTML</span>
-                                    <span class="tech-tag">CSS</span>
-                                    <span class="tech-tag">JavaScript</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/Aman-Haris/Mattrix-Website" target="_blank" class="btn github-btn">
-                                        <i class="fab fa-github"></i> Code
-                                    </a>
-                                    <a href="https://mattrixautocorp.com/" target="_blank" class="btn demo-btn">
-                                        <i class="fas fa-external-link-alt"></i> Visit
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Personal Project 4 -->
-                        <div class="swiper-slide project-card personal-projects">
-                            <div class="project-image">
-                                <img src="assets/images/projects/dashboard.png" alt="Personal Stock Portfolio Tracker">
-                                <video class="project-video" loop muted>
-                                    <source src="assets/videos/dashboard.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="project-info">
-                                <h3>Personal Stock Portfolio Tracker</h3>
-                                <p>An interactive personal stock portfolio dashboard that helps you track open and closed positions, analyze profit/loss performance, and gain insight into your investment behavior—all in real-time. Originally developed in Power BI, this upgraded version uses Streamlit with integrated Google Sheets and Plotly for dynamic visualizations.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">Google Sheets</span>
-                                    <span class="tech-tag">Data Visualization</span>
-                                    <span class="tech-tag">Streamlit</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/Aman-Haris/Personal-Stock-Portfolio-Tracker" target="_blank" class="btn github-btn">
-                                        <i class="fab fa-github"></i> Code
-                                    </a>
-                                    <a href="#" class="btn view-btn">
-                                        <i class="fas fa-info-circle"></i> Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Personal Project 5 -->
-                        <div class="swiper-slide project-card personal-projects">
-                            <div class="project-image">
-                                <img src="assets/images/projects/nlp-api.png" alt="Offensive Language Detection">
-                                <video class="project-video" loop muted>
-                                    <source src="assets/videos/nlp-api-demo.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="project-info">
-                                <h3>Offensive Language Detection API</h3>
-                                <p>Developed a production-ready NLP service that identifies potentially offensive content in user-generated text with a RESTful API endpoint.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">NLP</span>
-                                    <span class="tech-tag">Flask</span>
-                                    <span class="tech-tag">Python</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/Aman-Haris/Offensive-Language-Detector" target="_blank" class="btn github-btn">
-                                        <i class="fab fa-github"></i> Code
-                                    </a>
-                                    <a href="#" class="btn view-btn">
-                                        <i class="fas fa-info-circle"></i> Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Personal Project 6 -->
-                        <div class="swiper-slide project-card personal-projects">
-                            <div class="project-image">
-                                <img src="assets/images/projects/web-scraper.png" alt="Web Scraping System">
-                                <video class="project-video" loop muted>
-                                    <source src="assets/videos/web-scraper-demo.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="project-info">
-                                <h3>Web Scraping Automation</h3>
-                                <p>Engineered an enterprise-grade RPA solution using Blueprism RPA for automated data extraction from websites with robust error handling.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">BluePrism</span>
-                                    <span class="tech-tag">RPA</span>
-                                    <span class="tech-tag">Automation</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/Aman-Haris/BluePrism-RPA-based-Web-Scrapping" target="_blank" class="btn github-btn">
-                                        <i class="fab fa-github"></i> Code
-                                    </a>
-                                    <a href="#" class="btn view-btn">
-                                        <i class="fas fa-info-circle"></i> Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Navigation arrows -->
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-                
-                <!-- Pagination dots -->
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal for project details/videos -->
-    <div class="modal">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <!-- Content will be inserted here dynamically -->
+    <!-- ===================== EXPAND OVERLAY ===================== -->
+    <div class="bento-overlay" id="bento-overlay" hidden aria-modal="true" role="dialog" aria-label="Expanded content">
+        <div class="bento-modal">
+            <button class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>
+            <div class="modal-body" id="modal-body"></div>
         </div>
     </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section section">
-        <div class="container">
-        <h2 class="section-title">Contact Me</h2>
-        <p class="section-subtitle">Let's connect and discuss opportunities</p>
-        
-        <div class="contact-content">
-            <div class="contact-info">
-            <div class="contact-item">
-                <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-                </div>
-                <div class="contact-links">
-                <h3>Email</h3>
-                <p><a href="mailto:amanharisofficial@protonmail.com">amanharisofficial@protonmail.com</a></p>
+    <!-- ===================== TEMPLATES ===================== -->
+
+    <!-- About expanded -->
+    <template id="expand-about">
+        <div class="expanded-about">
+            <div class="expanded-header">
+                <img src="assets/images/test.jpeg" alt="Aman Haris" class="expanded-avatar">
+                <div>
+                    <h2 class="expanded-title">Aman Haris</h2>
+                    <p class="expanded-subtitle">AI / ML / GenAI Engineer · Bengaluru, India</p>
                 </div>
             </div>
-            
-            <div class="contact-item">
-                <div class="contact-icon">
-                <i class="fas fa-phone-alt"></i>
+            <p class="expanded-bio">Hi there! I'm Aman Haris, a Software Engineer with a passion for AI, GenAI, ML, and Automation. Over the years, I've worked on exciting projects like building intelligent chatbots, developing code conversion tools, and creating scalable AI solutions that drive innovation and improve efficiency. From automating workflows to crafting cutting-edge applications, I love solving complex problems and making a real impact through technology.</p>
+            <p class="expanded-bio muted">"The best way to predict the future is to create it." — Outside work I follow cricket, F1, and cook whenever I get the chance.</p>
+            <div class="expanded-highlights">
+                <div class="expanded-highlight-item">
+                    <i class="fas fa-brain"></i>
+                    <span>AI/ML Expert</span>
                 </div>
-                <div class="contact-links">
-                <h3>Phone</h3>
-                <p><a href="tel:+918618985209">+91 8618985209</a></p>
+                <div class="expanded-highlight-item">
+                    <i class="fas fa-code"></i>
+                    <span>Full-Stack Developer</span>
                 </div>
-            </div>
-            
-            <div class="contact-item">
-                <div class="contact-icon">
-                <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="contact-links">
-                <h3>Location</h3>
-                <p>Bengaluru, Karnataka, India</p>
+                <div class="expanded-highlight-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team Collaborator</span>
                 </div>
             </div>
-            
-            <div class="contact-item">
-                <div class="contact-icon">
-                <i class="fab fa-linkedin-in"></i>
+            <div class="expanded-languages">
+                <h4>Languages</h4>
+                <ul>
+                    <li><span>English</span> <span class="lang-level">Professional</span></li>
+                    <li><span>Malayalam</span> <span class="lang-level">Native</span></li>
+                    <li><span>Kannada</span> <span class="lang-level">Fluent</span></li>
+                    <li><span>Hindi</span> <span class="lang-level">Fluent</span></li>
+                    <li><span>Tamil</span> <span class="lang-level">Conversational</span></li>
+                </ul>
+            </div>
+            <div class="expanded-actions">
+                <a href="assets/resume/Aman Haris.pdf" class="btn primary-btn" target="_blank" rel="noopener">
+                    Download CV <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Skills expanded -->
+    <template id="expand-skills">
+        <div class="expanded-skills">
+            <h2 class="expanded-title">Skills</h2>
+            <p class="expanded-subtitle">Click each category to expand</p>
+            <div class="skills-grid-expanded">
+                <details class="skill-group" open>
+                    <summary><i class="fas fa-brain"></i> AI / ML</summary>
+                    <div class="skill-items-list">
+                        <div class="skill-item"><span>Generative AI</span><div class="skill-dots expert"></div></div>
+                        <div class="skill-item"><span>Prompt Engineering</span><div class="skill-dots expert"></div></div>
+                        <div class="skill-item"><span>RAG</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span>NLP</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span>Computer Vision</span><div class="skill-dots advanced"></div></div>
+                    </div>
+                </details>
+                <details class="skill-group">
+                    <summary><i class="fas fa-code"></i> Programming</summary>
+                    <div class="skill-items-list">
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/python" alt="" class="skill-icon">Python</span><div class="skill-dots expert"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/fastapi" alt="" class="skill-icon">FastAPI</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/postgresql" alt="" class="skill-icon">SQL</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/javascript" alt="" class="skill-icon">HTML / CSS / JS</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/cplusplus" alt="" class="skill-icon">C++</span><div class="skill-dots intermediate"></div></div>
+                    </div>
+                </details>
+                <details class="skill-group">
+                    <summary><i class="fas fa-cloud"></i> Cloud &amp; DevOps</summary>
+                    <div class="skill-items-list">
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/microsoftazure" alt="" class="skill-icon">Azure AI Services</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/microsoftazure" alt="" class="skill-icon">Azure Web &amp; Function Apps</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/microsoftazure" alt="" class="skill-icon">Azure Container Registry</span><div class="skill-dots intermediate"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/microsoftazure" alt="" class="skill-icon">Azure Entra ID</span><div class="skill-dots intermediate"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/docker" alt="" class="skill-icon">Docker</span><div class="skill-dots intermediate"></div></div>
+                    </div>
+                </details>
+                <details class="skill-group">
+                    <summary><i class="fas fa-layer-group"></i> Frameworks &amp; Libraries</summary>
+                    <div class="skill-items-list">
+                        <div class="skill-item"><span><img src="assets/images/logos/langchain.png" alt="" class="skill-icon">Langchain</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/huggingface" alt="" class="skill-icon">HuggingFace</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/openai" alt="" class="skill-icon">OpenAI SDK</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="assets/images/logos/pinecone.png" alt="" class="skill-icon">Pinecone</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/streamlit" alt="" class="skill-icon">Streamlit</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/gradio" alt="" class="skill-icon">Gradio</span><div class="skill-dots advanced"></div></div>
+                    </div>
+                </details>
+                <details class="skill-group">
+                    <summary><i class="fas fa-tools"></i> Tools</summary>
+                    <div class="skill-items-list">
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/visualstudiocode" alt="" class="skill-icon">VS Code</span><div class="skill-dots expert"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/git" alt="" class="skill-icon">Git</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/anaconda" alt="" class="skill-icon">Anaconda</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/figma" alt="" class="skill-icon">Figma</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/postman" alt="" class="skill-icon">Postman</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/mysql" alt="" class="skill-icon">SQL Workbench</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span><img src="https://cdn.simpleicons.org/powerbi" alt="" class="skill-icon">Power BI</span><div class="skill-dots intermediate"></div></div>
+                    </div>
+                </details>
+                <details class="skill-group">
+                    <summary><i class="fas fa-user-tie"></i> Professional</summary>
+                    <div class="skill-items-list">
+                        <div class="skill-item"><span>Technical Leadership</span><div class="skill-dots expert"></div></div>
+                        <div class="skill-item"><span>Process Optimization</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span>Cross-Functional Collab</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span>Project Management</span><div class="skill-dots advanced"></div></div>
+                        <div class="skill-item"><span>Continuous Learning</span><div class="skill-dots expert"></div></div>
+                    </div>
+                </details>
+            </div>
+            <div class="skill-legend">
+                <span><span class="dot expert-dot"></span> Expert</span>
+                <span><span class="dot advanced-dot"></span> Advanced</span>
+                <span><span class="dot intermediate-dot"></span> Intermediate</span>
+            </div>
+        </div>
+    </template>
+
+    <!-- Experience expanded -->
+    <template id="expand-exp">
+        <div class="expanded-exp">
+            <h2 class="expanded-title">Experience</h2>
+            <div class="exp-entry">
+                <div class="exp-entry-header">
+                    <h3>Software Engineer 1</h3>
+                    <span class="exp-badge">Current</span>
                 </div>
-                <div class="contact-links">
-                <h3>LinkedIn</h3>
-                <p><a href="https://linkedin.com/in/aman-haris" target="_blank">linkedin.com/in/aman-haris</a></p>
+                <p class="exp-org">Tessolve Semiconductors Pvt Ltd</p>
+                <p class="exp-date"><i class="fas fa-calendar-alt"></i> Feb 2024 – Present</p>
+                <ul class="exp-details">
+                    <li>Built AI/ML tools driving significant operational efficiency across BUs.</li>
+                    <li>Led SDL, CI/CD workflows and Azure cloud implementation.</li>
+                    <li>Delivered tailored AI solutions via cross-functional collaboration.</li>
+                    <li>Reduced manual tasks by up to 90% through intelligent automation.</li>
+                    <li>Received <strong>Outstanding Performance</strong> rating for "exceeding expectations by a huge stretch, going above and beyond immediate areas of responsibility."</li>
+                </ul>
+            </div>
+        </div>
+    </template>
+
+    <!-- Education expanded -->
+    <template id="expand-edu">
+        <div class="expanded-exp">
+            <h2 class="expanded-title">Education</h2>
+            <div class="exp-timeline">
+                <div class="exp-entry">
+                    <h3>MSc Artificial Intelligence</h3>
+                    <p class="exp-org">Heriot-Watt University, Edinburgh</p>
+                    <p class="exp-date"><i class="fas fa-calendar-alt"></i> Sept 2022 – Dec 2023</p>
+                </div>
+                <div class="exp-entry">
+                    <h3>BE in Computer Science</h3>
+                    <p class="exp-org">AMC Engineering College, Bengaluru</p>
+                    <p class="exp-date"><i class="fas fa-calendar-alt"></i> Aug 2018 – Aug 2022</p>
+                </div>
+                <div class="exp-entry">
+                    <h3>Class XII — PCM &amp; Computer Science</h3>
+                    <p class="exp-org">Christ Academy, Bengaluru</p>
+                    <p class="exp-date"><i class="fas fa-calendar-alt"></i> May 2016 – May 2018</p>
+                </div>
+                <div class="exp-entry">
+                    <h3>Class X — ICSE</h3>
+                    <p class="exp-org">St. Francis School, Bengaluru</p>
+                    <p class="exp-date"><i class="fas fa-calendar-alt"></i> 2016</p>
                 </div>
             </div>
-            
-            <div class="contact-item">
-                <div class="contact-icon">
-                <i class="fab fa-github"></i>
-                </div>
-                <div class="contact-links">
-                <h3>GitHub</h3>
-                <p><a href="https://github.com/aman-haris" target="_blank">github.com/aman-haris</a></p>
+        </div>
+    </template>
+
+    <!-- Project P1: RAG Chatbot -->
+    <template id="expand-p1">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <span class="nda-badge"><i class="fas fa-lock"></i> NDA — Proprietary</span>
+                <h2 class="expanded-title">RAG-based Chatbot</h2>
+                <p class="expanded-subtitle">Professional · Tessolve Semiconductors</p>
+            </div>
+            <p class="expanded-desc">Architected and deployed an enterprise chatbot system using Retrieval-Augmented Generation. Integrated Langchain orchestration with OpenAI's language models, Azure cloud infrastructure, and Pinecone vector database to enable accurate, context-aware responses across multiple departments.</p>
+            <div class="expanded-metrics">
+                <div class="metric-chip"><span class="metric-value">85%</span><span class="metric-label">Retrieval improvement</span></div>
+            </div>
+            <div class="expanded-tags">
+                <span class="tech-tag">Langchain</span>
+                <span class="tech-tag">OpenAI</span>
+                <span class="tech-tag">Azure</span>
+                <span class="tech-tag">Pinecone</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">FastAPI</span>
+            </div>
+            <p class="nda-note"><i class="fas fa-info-circle"></i> Source code and live demo are under NDA.</p>
+        </div>
+    </template>
+
+    <!-- Project P2: ArchShift -->
+    <template id="expand-p2">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <span class="nda-badge"><i class="fas fa-lock"></i> NDA — Proprietary</span>
+                <h2 class="expanded-title">ArchShift — Code Converter &amp; Generator</h2>
+                <p class="expanded-subtitle">Professional · Tessolve Semiconductors</p>
+            </div>
+            <p class="expanded-desc">Pioneered a tool leveraging proprietary LLM fine-tuning and prompt engineering techniques to automatically transform ARM platform C++ code to RISC-V platform C code. The tool can also generate new RISC-V code from specifications, cutting development time significantly.</p>
+            <div class="expanded-metrics">
+                <div class="metric-chip"><span class="metric-value">95%</span><span class="metric-label">Code accuracy</span></div>
+                <div class="metric-chip"><span class="metric-value">90%</span><span class="metric-label">Migration time reduction</span></div>
+                <div class="metric-chip"><span class="metric-value">75%</span><span class="metric-label">Dev time reduction (generation)</span></div>
+            </div>
+            <div class="expanded-tags">
+                <span class="tech-tag">GenAI</span>
+                <span class="tech-tag">Prompt Engineering</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">LLM Fine-tuning</span>
+            </div>
+            <p class="nda-note"><i class="fas fa-info-circle"></i> Source code and live demo are under NDA.</p>
+        </div>
+    </template>
+
+    <!-- Project P3: ADAS (has video) -->
+    <template id="expand-p3">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <h2 class="expanded-title">ADAS for Low Visibility</h2>
+                <p class="expanded-subtitle">Personal Project</p>
+            </div>
+            <div class="expanded-video">
+                <video controls>
+                    <source src="assets/videos/adas-demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p class="expanded-desc">Developed an advanced machine learning system that enhances rider safety during poor visibility conditions. Uses real-time object detection with YOLOv5 to identify obstacles, pedestrians, and vehicles in fog, rain, and night conditions, providing audible and visual alerts.</p>
+            <div class="expanded-tags">
+                <span class="tech-tag">Computer Vision</span>
+                <span class="tech-tag">YOLOv5</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">ML</span>
+            </div>
+            <div class="expanded-links">
+                <a href="https://github.com/Aman-Haris/ADAS-with-Object-Detection-and-Tracking-for-Low-Visibility-Conditions" class="btn primary-btn" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Project P4: Assertify (NDA) -->
+    <template id="expand-p4">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <span class="nda-badge"><i class="fas fa-lock"></i> NDA — Proprietary</span>
+                <h2 class="expanded-title">Assertify</h2>
+                <p class="expanded-subtitle">Professional · Tessolve Semiconductors</p>
+            </div>
+            <p class="expanded-desc">Developed an innovative LLM-powered tool that automates bidirectional conversion between plain English specifications and SystemVerilog Assertions (SVA). Enables verification engineers to write natural language descriptions and get accurate SVA code, or describe existing SVA in plain English for documentation.</p>
+            <div class="expanded-metrics">
+                <div class="metric-chip"><span class="metric-value">40%</span><span class="metric-label">Manual verification effort reduced</span></div>
+            </div>
+            <div class="expanded-tags">
+                <span class="tech-tag">GenAI</span>
+                <span class="tech-tag">Prompt Engineering</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">SystemVerilog</span>
+            </div>
+            <p class="nda-note"><i class="fas fa-info-circle"></i> Source code and live demo are under NDA.</p>
+        </div>
+    </template>
+
+    <!-- Project P5: Resume Analytics (NDA) -->
+    <template id="expand-p5">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <span class="nda-badge"><i class="fas fa-lock"></i> NDA — Proprietary</span>
+                <h2 class="expanded-title">Resume Analytics Tool</h2>
+                <p class="expanded-subtitle">Professional · Tessolve Semiconductors</p>
+            </div>
+            <p class="expanded-desc">Created an AI-powered ATS (Applicant Tracking System) solution that compares candidate resumes against job descriptions, calculates semantic match percentages, and generates tailored profile summaries highlighting relevant experience. Built to streamline internal recruitment processes.</p>
+            <div class="expanded-metrics">
+                <div class="metric-chip"><span class="metric-value">60%</span><span class="metric-label">Recruitment efficiency improvement</span></div>
+            </div>
+            <div class="expanded-tags">
+                <span class="tech-tag">GenAI</span>
+                <span class="tech-tag">Prompt Engineering</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Streamlit</span>
+            </div>
+            <p class="nda-note"><i class="fas fa-info-circle"></i> Source code and live demo are under NDA.</p>
+        </div>
+    </template>
+
+    <!-- Project P6: ASPICE Studio (NDA) -->
+    <template id="expand-p6">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <span class="nda-badge"><i class="fas fa-lock"></i> NDA — Proprietary</span>
+                <h2 class="expanded-title">ASPICE Studio</h2>
+                <p class="expanded-subtitle">Professional · Tessolve Semiconductors</p>
+            </div>
+            <p class="expanded-desc">Engineered a GenAI tool to assist automotive embedded engineers during the SWE 3 phase of the ASPICE process. The tool automatically generates interface tables and UML diagrams directly from C codebases, eliminating a significant portion of manual documentation work in automotive software development.</p>
+            <div class="expanded-metrics">
+                <div class="metric-chip"><span class="metric-value">90%</span><span class="metric-label">Development time reduced</span></div>
+            </div>
+            <div class="expanded-tags">
+                <span class="tech-tag">GenAI</span>
+                <span class="tech-tag">Prompt Engineering</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">ASPICE</span>
+                <span class="tech-tag">UML</span>
+            </div>
+            <p class="nda-note"><i class="fas fa-info-circle"></i> Source code and live demo are under NDA.</p>
+        </div>
+    </template>
+
+    <!-- Project P7: Veriplan (NDA) -->
+    <template id="expand-p7">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <span class="nda-badge"><i class="fas fa-lock"></i> NDA — Proprietary</span>
+                <h2 class="expanded-title">Veriplan</h2>
+                <p class="expanded-subtitle">Professional · Tessolve Semiconductors</p>
+            </div>
+            <p class="expanded-desc">Developed a RAG-based tool that streamlines verification planning across multiple levels — unit, integration, and system — with guided workflows and intelligent prompts. Enables DV engineers to create comprehensive test plans and manage coverage with minimal manual effort, using contextual knowledge retrieval from existing documentation.</p>
+            <div class="expanded-tags">
+                <span class="tech-tag">GenAI</span>
+                <span class="tech-tag">RAG</span>
+                <span class="tech-tag">Langchain</span>
+                <span class="tech-tag">Python</span>
+            </div>
+            <p class="nda-note"><i class="fas fa-info-circle"></i> Source code and live demo are under NDA.</p>
+        </div>
+    </template>
+
+    <!-- Project P8: Session Memory Chatbot (NDA) -->
+    <template id="expand-p8">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <span class="nda-badge"><i class="fas fa-lock"></i> NDA — Proprietary</span>
+                <h2 class="expanded-title">Session-Memory Training Chatbot</h2>
+                <p class="expanded-subtitle">Professional · Tessolve Semiconductors</p>
+            </div>
+            <p class="expanded-desc">Engineered an intelligent chatbot for technical training that maintains session memory to provide coherent multi-turn conversations. Helps new engineers learn internal tooling, processes, and codebases through natural conversation, adapting to each user's progress and questions.</p>
+            <div class="expanded-metrics">
+                <div class="metric-chip"><span class="metric-value">75%</span><span class="metric-label">Onboarding efficiency improvement</span></div>
+            </div>
+            <div class="expanded-tags">
+                <span class="tech-tag">GenAI</span>
+                <span class="tech-tag">Azure</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Session Memory</span>
+            </div>
+            <p class="nda-note"><i class="fas fa-info-circle"></i> Source code and live demo are under NDA.</p>
+        </div>
+    </template>
+
+    <!-- Project P9: The Sentient Sip -->
+    <template id="expand-p9">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <h2 class="expanded-title">The Sentient Sip</h2>
+                <p class="expanded-subtitle">Personal Project</p>
+            </div>
+            <p class="expanded-desc">An AI-powered virtual café where Rita, a snarky digital waiter, serves up witty conversation alongside imaginary coffee. Built with Mistral AI for natural language generation and Pygame for the interactive UI, creating a quirky and entertaining conversational experience.</p>
+            <div class="expanded-tags">
+                <span class="tech-tag">GenAI</span>
+                <span class="tech-tag">Mistral AI</span>
+                <span class="tech-tag">Prompt Engineering</span>
+                <span class="tech-tag">Pygame</span>
+                <span class="tech-tag">Python</span>
+            </div>
+            <div class="expanded-links">
+                <a href="https://github.com/Aman-Haris/The-Sentient-Sip" class="btn primary-btn" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Project P10: Mattrix Website -->
+    <template id="expand-p10">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <h2 class="expanded-title">Mattrix Auto Corp Website</h2>
+                <p class="expanded-subtitle">Personal Project</p>
+            </div>
+            <p class="expanded-desc">Designed and developed a complete business website for Mattrix Auto Corp using HTML, CSS, and JavaScript. The site features a responsive design, service showcase, contact forms, and a modern automotive aesthetic. Resulted in measurable business impact through increased online visibility.</p>
+            <div class="expanded-metrics">
+                <div class="metric-chip"><span class="metric-value">30%</span><span class="metric-label">Increase in sales enquiries</span></div>
+            </div>
+            <div class="expanded-tags">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+            </div>
+            <div class="expanded-links">
+                <a href="https://github.com/Aman-Haris/Mattrix-Website" class="btn primary-btn" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="https://mattrixautocorp.com/" class="btn outline-btn" target="_blank" rel="noopener">
+                    <i class="fas fa-external-link-alt"></i> Live Site
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Project P11: Stock Portfolio Tracker -->
+    <template id="expand-p11">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <h2 class="expanded-title">Personal Stock Portfolio Tracker</h2>
+                <p class="expanded-subtitle">Personal Project</p>
+            </div>
+            <p class="expanded-desc">An interactive stock portfolio dashboard to track open and closed positions, analyse profit/loss performance, and gain insight into investment behaviour — all in real-time. Originally built in Power BI, upgraded to Streamlit with Google Sheets integration and Plotly for dynamic, shareable visualisations.</p>
+            <div class="expanded-tags">
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">Google Sheets API</span>
+                <span class="tech-tag">Plotly</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Power BI</span>
+            </div>
+            <div class="expanded-links">
+                <a href="https://github.com/Aman-Haris/Personal-Stock-Portfolio-Tracker" class="btn primary-btn" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Project P12: Offensive Language Detection API -->
+    <template id="expand-p12">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <h2 class="expanded-title">Offensive Language Detection API</h2>
+                <p class="expanded-subtitle">Personal Project</p>
+            </div>
+            <p class="expanded-desc">Developed a production-ready NLP microservice that identifies potentially offensive or harmful content in user-generated text. Exposes a RESTful API endpoint built with Flask, enabling integration into any platform that handles user content moderation.</p>
+            <div class="expanded-tags">
+                <span class="tech-tag">NLP</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">REST API</span>
+                <span class="tech-tag">HuggingFace</span>
+            </div>
+            <div class="expanded-links">
+                <a href="https://github.com/Aman-Haris/Offensive-Language-Detector" class="btn primary-btn" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Project P13: Web Scraping Automation -->
+    <template id="expand-p13">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <h2 class="expanded-title">Web Scraping Automation</h2>
+                <p class="expanded-subtitle">Personal Project</p>
+            </div>
+            <p class="expanded-desc">Engineered an enterprise-grade RPA solution using BluePrism for automated data extraction from websites. Features robust error handling, scheduled execution, and structured data output — demonstrating practical RPA implementation for business automation needs.</p>
+            <div class="expanded-tags">
+                <span class="tech-tag">BluePrism</span>
+                <span class="tech-tag">RPA</span>
+                <span class="tech-tag">Automation</span>
+            </div>
+            <div class="expanded-links">
+                <a href="https://github.com/Aman-Haris/BluePrism-RPA-based-Web-Scrapping" class="btn primary-btn" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Project P14: Schematic Verification Tool (NDA) -->
+    <template id="expand-p14">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <span class="nda-badge"><i class="fas fa-lock"></i> NDA — Proprietary</span>
+                <h2 class="expanded-title">Schematic Verification Tool</h2>
+                <p class="expanded-subtitle">Professional · Tessolve Semiconductors</p>
+            </div>
+            <p class="expanded-desc">Engineered an AI-powered tool that helps test engineers verify whether they have made proper connections between the tester board and the chip. The system intelligently cross-references schematic diagrams with connection specifications, flagging discrepancies automatically and eliminating error-prone manual checks.</p>
+            <div class="expanded-metrics">
+                <div class="metric-chip"><span class="metric-value">60%</span><span class="metric-label">Manual verification effort reduced</span></div>
+            </div>
+            <div class="expanded-tags">
+                <span class="tech-tag">GenAI</span>
+                <span class="tech-tag">Computer Vision</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Azure</span>
+            </div>
+            <p class="nda-note"><i class="fas fa-info-circle"></i> Source code and live demo are under NDA.</p>
+        </div>
+    </template>
+
+    <!-- Project P15: ASTRA (Personal — In Development) -->
+    <template id="expand-p15">
+        <div class="expanded-project">
+            <div class="expanded-project-header">
+                <h2 class="expanded-title">ASTRA — Asteroid Threat Scoring &amp; Trajectory Analysis</h2>
+                <p class="expanded-subtitle">Personal Project · In Development</p>
+            </div>
+            <p class="expanded-desc">Building an AI-powered system for predicting asteroid trajectories, assessing collision threats, and enabling real-time planetary defence insights. ASTRA predicts trajectories using Graph Neural Networks, quantifies collision probability through Bayesian threat scoring, and renders real-time threat visualisations.</p>
+            <div class="expanded-tags">
+                <span class="tech-tag">Graph Neural Networks</span>
+                <span class="tech-tag">Bayesian ML</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Data Visualisation</span>
+                <span class="tech-tag">AI</span>
+            </div>
+        </div>
+    </template>
+
+    <!-- All Projects expanded -->
+    <template id="expand-all">
+        <div class="expanded-all-projects">
+            <h2 class="expanded-title">All Projects</h2>
+
+            <div class="all-proj-section">
+                <h3 class="all-proj-category-title"><i class="fas fa-briefcase"></i> Professional <span class="proj-count">8</span></h3>
+                <p class="all-proj-note"><i class="fas fa-lock"></i> All professional projects are under NDA — name, description &amp; metrics shared.</p>
+                <div class="all-proj-grid">
+                    <div class="all-proj-card nda-card">
+                        <p class="proj-emoji">🤖</p>
+                        <h4>RAG-based Chatbot</h4>
+                        <p>Cross-departmental AI chatbot using Langchain, OpenAI &amp; Azure Pinecone. Enhanced information retrieval by 85%.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">Langchain</span><span class="tech-tag">OpenAI</span><span class="tech-tag">Azure</span><span class="tech-tag">Pinecone</span></div>
+                    </div>
+                    <div class="all-proj-card nda-card">
+                        <p class="proj-emoji">🧠</p>
+                        <h4>Session-Memory Training Chatbot</h4>
+                        <p>Intelligent training chatbot with persistent session memory. Improved onboarding efficiency by 75%.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">GenAI</span><span class="tech-tag">Azure</span><span class="tech-tag">Python</span></div>
+                    </div>
+                    <div class="all-proj-card nda-card">
+                        <p class="proj-emoji">⚙️</p>
+                        <h4>ArchShift</h4>
+                        <p>ARM → RISC-V code converter &amp; generator. 95% accuracy, 90% faster migration, 75% faster dev.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">GenAI</span><span class="tech-tag">Prompt Eng.</span><span class="tech-tag">Python</span></div>
+                    </div>
+                    <div class="all-proj-card nda-card">
+                        <p class="proj-emoji">✅</p>
+                        <h4>Assertify</h4>
+                        <p>LLM tool automating English ↔ SystemVerilog Assertion conversion. Reduced verification effort by 40%.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">GenAI</span><span class="tech-tag">Python</span><span class="tech-tag">SystemVerilog</span></div>
+                    </div>
+                    <div class="all-proj-card nda-card">
+                        <p class="proj-emoji">📄</p>
+                        <h4>Resume Analytics Tool</h4>
+                        <p>AI-powered ATS — resume vs JD matching, score calculation, profile summaries. 60% efficiency gain.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">GenAI</span><span class="tech-tag">Streamlit</span><span class="tech-tag">Python</span></div>
+                    </div>
+                    <div class="all-proj-card nda-card">
+                        <p class="proj-emoji">🚗</p>
+                        <h4>ASPICE Studio</h4>
+                        <p>GenAI tool generating interface tables &amp; UML diagrams from C codebases for automotive ASPICE SWE 3. 90% time saved.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">GenAI</span><span class="tech-tag">ASPICE</span><span class="tech-tag">UML</span></div>
+                    </div>
+                    <div class="all-proj-card nda-card">
+                        <p class="proj-emoji">🔬</p>
+                        <h4>Veriplan</h4>
+                        <p>RAG tool for verification planning with guided workflows &amp; intelligent prompts for DV engineers.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">RAG</span><span class="tech-tag">Langchain</span><span class="tech-tag">Python</span></div>
+                    </div>
+                    <div class="all-proj-card nda-card">
+                        <p class="proj-emoji">🔌</p>
+                        <h4>Schematic Verification Tool</h4>
+                        <p>AI tool to verify tester board–chip connections from schematics. Reduced manual verification effort by 60%.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">GenAI</span><span class="tech-tag">Computer Vision</span><span class="tech-tag">Python</span></div>
+                    </div>
                 </div>
             </div>
+
+            <div class="all-proj-section">
+                <h3 class="all-proj-category-title"><i class="fas fa-user"></i> Personal <span class="proj-count">7</span></h3>
+                <div class="all-proj-grid">
+                    <div class="all-proj-card">
+                        <p class="proj-emoji">🚦</p>
+                        <h4>ADAS for Low Visibility</h4>
+                        <p>Real-time ML safety system with YOLOv5 object detection for poor visibility riding conditions.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">Computer Vision</span><span class="tech-tag">YOLOv5</span><span class="tech-tag">Python</span></div>
+                        <a href="https://github.com/Aman-Haris/ADAS-with-Object-Detection-and-Tracking-for-Low-Visibility-Conditions" target="_blank" rel="noopener" class="btn outline-btn btn-sm"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                    <div class="all-proj-card">
+                        <p class="proj-emoji">☕</p>
+                        <h4>The Sentient Sip</h4>
+                        <p>AI café with Rita, a snarky digital waiter powered by Mistral AI &amp; Pygame.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">Mistral AI</span><span class="tech-tag">Pygame</span><span class="tech-tag">Python</span></div>
+                        <a href="https://github.com/Aman-Haris/The-Sentient-Sip" target="_blank" rel="noopener" class="btn outline-btn btn-sm"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                    <div class="all-proj-card">
+                        <p class="proj-emoji">🔧</p>
+                        <h4>Mattrix Auto Corp Website</h4>
+                        <p>Business website for automotive company. Increased sales enquiries by 30%.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JS</span></div>
+                        <div class="expanded-links">
+                            <a href="https://github.com/Aman-Haris/Mattrix-Website" target="_blank" rel="noopener" class="btn outline-btn btn-sm"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://mattrixautocorp.com/" target="_blank" rel="noopener" class="btn outline-btn btn-sm"><i class="fas fa-external-link-alt"></i> Visit</a>
+                        </div>
+                    </div>
+                    <div class="all-proj-card">
+                        <p class="proj-emoji">📈</p>
+                        <h4>Stock Portfolio Tracker</h4>
+                        <p>Real-time P&amp;L dashboard with Google Sheets integration and Plotly visualisations.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">Streamlit</span><span class="tech-tag">Plotly</span><span class="tech-tag">Python</span></div>
+                        <a href="https://github.com/Aman-Haris/Personal-Stock-Portfolio-Tracker" target="_blank" rel="noopener" class="btn outline-btn btn-sm"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                    <div class="all-proj-card">
+                        <p class="proj-emoji">🛡️</p>
+                        <h4>Offensive Language Detection API</h4>
+                        <p>Production-ready NLP REST API for content moderation using HuggingFace models.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">NLP</span><span class="tech-tag">Flask</span><span class="tech-tag">Python</span></div>
+                        <a href="https://github.com/Aman-Haris/Offensive-Language-Detector" target="_blank" rel="noopener" class="btn outline-btn btn-sm"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                    <div class="all-proj-card">
+                        <p class="proj-emoji">🕷️</p>
+                        <h4>Web Scraping Automation</h4>
+                        <p>Enterprise-grade RPA solution using BluePrism with robust error handling.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">BluePrism</span><span class="tech-tag">RPA</span><span class="tech-tag">Automation</span></div>
+                        <a href="https://github.com/Aman-Haris/BluePrism-RPA-based-Web-Scrapping" target="_blank" rel="noopener" class="btn outline-btn btn-sm"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                    <div class="all-proj-card">
+                        <p class="proj-emoji">☄️</p>
+                        <h4>ASTRA</h4>
+                        <p>AI system for predicting asteroid trajectories &amp; threat scoring using GNNs and Bayesian ML. In development.</p>
+                        <div class="all-proj-tags"><span class="tech-tag">GNN</span><span class="tech-tag">Bayesian ML</span><span class="tech-tag">Python</span></div>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Contact Form -->
-            <div class="contact-form">
-                <form 
-                  id="contactForm" 
-                  action="https://formspree.io/f/xwplgady" 
-                  method="POST"
-                >
-                  <!-- Formspree Metadata -->
-                  <input type="hidden" name="_subject" value="New message from Aman Haris' portfolio">
-                  <input type="hidden" name="_language" value="en">
-                  
-                  <!-- Honeypot Field -->
-                  <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
-                  
-                  <!-- Form Fields -->
-                  <div class="form-group floating">
-                    <input type="text" id="name" name="name" placeholder=" " required>
-                    <label for="name">Name</label>
-                  </div>
-                  
-                  <div class="form-group floating">
-                    <input type="email" id="email" name="email" placeholder=" " required>
-                    <label for="email">Email</label>
-                  </div>
-                  
-                  <div class="form-group floating">
-                    <input type="text" id="subject" name="subject" placeholder=" " required>
-                    <label for="subject">Subject</label>
-                  </div>
-                  
-                  <div class="form-group floating">
-                    <textarea id="message" name="message" placeholder=" " required maxlength="500"></textarea>
-                    <label for="message">Message</label>
-                    <div class="char-counter">0/500</div>
-                  </div>
-                  
-                  <!-- Submit Button -->
-                  <button type="submit" class="btn primary-btn">
-                    <span class="button-text">Send Message</span>
-                    <i class="fas fa-paper-plane"></i>
-                    <i class="fas fa-spinner fa-spin loading-icon"></i>
-                  </button>
+        </div>
+    </template>
+
+    <!-- Contact expanded -->
+    <template id="expand-contact">
+        <div class="expanded-contact">
+            <h2 class="expanded-title">Get in Touch</h2>
+            <p class="expanded-subtitle">Open to AI/ML engineering roles and innovative tech opportunities.</p>
+            <div class="contact-expanded-grid">
+                <div class="contact-expanded-info">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <p class="contact-info-label">Email</p>
+                            <a href="mailto:amanharisofficial@protonmail.com">amanharisofficial@protonmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <p class="contact-info-label">Phone</p>
+                            <a href="tel:+918618985209">+91 8618985209</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <p class="contact-info-label">Location</p>
+                            <p>Bengaluru, Karnataka, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fab fa-linkedin-in"></i></div>
+                        <div>
+                            <p class="contact-info-label">LinkedIn</p>
+                            <a href="https://linkedin.com/in/aman-haris" target="_blank" rel="noopener">linkedin.com/in/aman-haris</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fab fa-github"></i></div>
+                        <div>
+                            <p class="contact-info-label">GitHub</p>
+                            <a href="https://github.com/aman-haris" target="_blank" rel="noopener">github.com/aman-haris</a>
+                        </div>
+                    </div>
+                </div>
+                <form id="contactForm" class="contact-form-expanded"
+                      action="https://formspree.io/f/xwplgady" method="POST">
+                    <input type="hidden" name="_subject" value="New message from Aman Haris portfolio">
+                    <input type="hidden" name="_language" value="en">
+                    <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
+                    <div class="form-group floating">
+                        <input type="text" id="name" name="name" placeholder=" " required>
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="form-group floating">
+                        <input type="email" id="email" name="email" placeholder=" " required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group floating">
+                        <input type="text" id="subject" name="subject" placeholder=" " required>
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="form-group floating">
+                        <textarea id="message" name="message" placeholder=" " required maxlength="500"></textarea>
+                        <label for="message">Message</label>
+                        <div class="char-counter">0/500</div>
+                    </div>
+                    <button type="submit" class="btn primary-btn">
+                        <span class="button-text">Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                        <i class="fas fa-spinner fa-spin loading-icon" style="display:none"></i>
+                    </button>
                 </form>
-              </div>
-        </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-          <div class="footer-content">
-            <!-- Brand Column -->
-            <div class="footer-brand">
-              <h3 class="footer-logo">Aman Haris<span class="accent">.</span></h3>
-              <p class="footer-tagline">AI/ML Engineer & Software Developer</p>
-              
-              <!-- Social Icons moved here -->
-              <div class="footer-social">
-                <a href="https://linkedin.com/in/aman-haris" target="_blank" aria-label="LinkedIn">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/aman-haris" target="_blank" aria-label="GitHub">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:amanharisofficial@protonmail.com" aria-label="Email">
-                  <i class="fas fa-envelope"></i>
-                </a>
-              </div>
             </div>
-      
-            <!-- Navigation Links -->
-            <div class="footer-links">
-              <div class="links-column">
-                <h4 class="links-heading">Navigation</h4>
-                <ul class="links-list">
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#experience">Experience</a></li>
-                  <li><a href="#skills">Skills</a></li>
-                  <li><a href="#projects">Projects</a></li>
-                  <li><a href="#contact">Contact</a></li>
-                </ul>
-              </div>
-              
-              <!-- Optional: Additional Links Column (remove if not needed) -->
-              <div class="links-column">
-                <h4 class="links-heading">Resources</h4>
-                <ul class="links-list">
-                  <li><a href="assets/resume/Aman Haris.pdf" download>Download Resume</a></li>
-                  <li><a href="https://www.fontshare.com/">Fonts</a></li>
-                  <li><a href="https://chat.deepseek.com/">Deepseek</a></li>
-                  <li><a href="https://chat.mistral.ai/chat">Mistral</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-      
-          <div class="footer-bottom">
-            <p>&copy; 2025 Aman Haris. All rights reserved.</p>
-            <p class="credit">Designed with <span class="heart">♥</span> and AI assistance</p>
-          </div>
-          
-          <a href="#hero" class="back-to-top" aria-label="Back to top">
-            <i class="fas fa-arrow-up"></i>
-          </a>
         </div>
-      </footer>
+    </template>
 
-    <!-- JavaScript Files -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+        <p>&copy; 2025 Aman Haris &nbsp;·&nbsp;
+            <a href="https://linkedin.com/in/aman-haris" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp;
+            <a href="https://github.com/aman-haris" target="_blank" rel="noopener">GitHub</a> &nbsp;·&nbsp;
+            <a href="assets/resume/Aman Haris.pdf" download>Resume</a>
+        </p>
+    </footer>
 
-    <!-- Main entry point as module -->
+    <!-- JS entry point -->
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

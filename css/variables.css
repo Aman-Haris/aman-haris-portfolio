@@ -20,55 +20,73 @@
 
 :root {
   /* Dark Mode Colors */
-  --primary-bg: #0f0f0f;
-  --secondary-bg: #1a1a1a;
-  --card-bg: #212121;
-  --border-color: #333333;
+  --primary-bg:   #070b14;
+  --secondary-bg: #0d1117;
+  --card-bg:      #111827;
+  --border-color: #1e2a3a;
 
-  --primary-accent: #6c5ce7;
-  --secondary-accent: #0077b6;
-  --tertiary-accent: #00c6ff;
+  /* Accents — 2 only */
+  --primary-accent:   #7c3aed;
+  --secondary-accent: #06b6d4;
 
-  --text-primary: #ffffff;
-  --text-secondary: #cccccc;
-  --text-muted: #999999;
+  --text-primary:   #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted:     #475569;
 
   --success-color: #00b894;
   --warning-color: #fdcb6e;
-  --error-color: #ff6b6b;
+  --error-color:   #ff6b6b;
+  --color-github:  #24292e;
+  --color-heart:   #ff6b6b;
+
+  /* Glassmorphism */
+  --glass-bg:      rgba(17, 24, 39, 0.6);
+  --glass-border:  rgba(124, 58, 237, 0.2);
+  --glass-blur:    blur(12px);
+
+  /* Glow */
+  --glow-primary:   0 0 20px rgba(124, 58, 237, 0.35);
+  --glow-secondary: 0 0 20px rgba(6, 182, 212, 0.35);
+  --glow-subtle:    0 0 40px rgba(124, 58, 237, 0.12);
+
+  /* Accent utilities */
+  --accent-bg-subtle:   rgba(124, 58, 237, 0.12);
+  --accent-bg-hover:    rgba(124, 58, 237, 0.25);
+  --accent-cyan-subtle: rgba(6, 182, 212, 0.12);
 
   /* Typography */
   --font-heading: 'Chillax-Regular', sans-serif;
   --font-body: 'Nunito-Regular', sans-serif;
 
-  /* Original values with 10% increase */
-  --text-xs: 0.825rem;    /* 13.2px - was 12px */
-  --text-sm: 0.9625rem;   /* 15.4px - was 14px */
-  --text-base: 1.1rem;    /* 17.6px - was 16px */
-  --text-lg: 1.2375rem;   /* 19.8px - was 18px */
-  --text-xl: 1.375rem;    /* 22px - was 20px */
-  --text-2xl: 1.65rem;    /* 26.4px - was 24px */
-  --text-3xl: 2.0625rem;  /* 33px - was 30px */
-  --text-4xl: 2.475rem;   /* 39.6px - was 36px */
-  --text-5xl: 3.3rem;     /* 52.8px - was 48px */
+  --text-xs:   0.75rem;   /* 12px */
+  --text-sm:   0.875rem;  /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg:   1.125rem;  /* 18px */
+  --text-xl:   1.25rem;   /* 20px */
+  --text-2xl:  1.5rem;    /* 24px */
+  --text-3xl:  1.875rem;  /* 30px */
+  --text-4xl:  2.25rem;   /* 36px */
+  --text-5xl:  3rem;      /* 48px */
 
   /* Spacing */
-  --space-1: 0.25rem;    /* 4px */
-  --space-2: 0.5rem;     /* 8px */
-  --space-3: 0.75rem;    /* 12px */
-  --space-4: 1rem;       /* 16px */
-  --space-5: 1.5rem;     /* 24px */
-  --space-6: 2rem;       /* 32px */
-  --space-8: 2.5rem;     /* 40px */
+  --space-1:  0.25rem;   /* 4px */
+  --space-2:  0.5rem;    /* 8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.5rem;    /* 24px */
+  --space-6:  2rem;      /* 32px */
+  --space-7:  2.25rem;   /* 36px */
+  --space-8:  2.5rem;    /* 40px */
   --space-10: 3rem;      /* 48px */
   --space-12: 4rem;      /* 64px */
   --space-16: 6rem;      /* 96px */
 
   /* Border Radius */
-  --radius-sm: 0.125rem; /* 2px */
-  --radius-md: 0.25rem;  /* 4px */
-  --radius-lg: 0.5rem;   /* 8px */
-  --radius-xl: 1rem;     /* 16px */
+  --radius-sm:   0.125rem;  /* 2px */
+  --radius-md:   0.25rem;   /* 4px */
+  --radius-lg:   0.5rem;    /* 8px */
+  --radius-xl:   1rem;      /* 16px */
+  --radius-2xl:  1.5rem;    /* 24px */
   --radius-full: 9999px;
 
   /* Box Shadows */
@@ -78,43 +96,41 @@
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
   /* Transitions */
-  --transition-fast: 0.2s ease;
+  --transition-fast:   0.2s ease;
   --transition-normal: 0.3s ease;
-  --transition-slow: 0.5s ease;
+  --transition-slow:   0.5s ease;
 
   /* Z-index */
   --z-negative: -1;
-  --z-elevate: 1;
+  --z-elevate:  1;
   --z-dropdown: 10;
-  --z-sticky: 100;
-  --z-fixed: 200;
-  --z-modal: 300;
-  --z-popover: 400;
-  --z-tooltip: 500;
+  --z-sticky:   100;
+  --z-fixed:    200;
+  --z-modal:    300;
+  --z-popover:  400;
+  --z-tooltip:  500;
 
-  /* Container Widths */
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
+  /* Layout */
+  --navbar-height:  48px;
+  --container-sm:   640px;
+  --container-md:   768px;
+  --container-lg:   1024px;
+  --container-xl:   1280px;
 }
 
 [data-theme="light"] {
-  /* Light Mode Colors */
-  --primary-bg: #F9F6EE;
-  --secondary-bg: #FFFFF0;
-  --card-bg: #eaeaea;
-  --border-color: #cccccc;
+  --primary-bg:   #f8fafc;
+  --secondary-bg: #f1f5f9;
+  --card-bg:      #e2e8f0;
+  --border-color: #cbd5e1;
 
-  --primary-accent: #6c5ce7;
-  --secondary-accent: #0077b6;
-  --tertiary-accent: #00c6ff;
+  --primary-accent:   #7c3aed;
+  --secondary-accent: #06b6d4;
 
-  --text-primary: #000000;
-  --text-secondary: #666666;
-  --text-muted: #999999;
+  --glass-bg:     rgba(241, 245, 249, 0.7);
+  --glass-border: rgba(124, 58, 237, 0.15);
 
-  --success-color: #00b894;
-  --warning-color: #fdcb6e;
-  --error-color: #ff6b6b;
+  --text-primary:   #0f172a;
+  --text-secondary: #475569;
+  --text-muted:     #94a3b8;
 }

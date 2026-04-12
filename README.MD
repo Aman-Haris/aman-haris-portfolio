@@ -8,12 +8,12 @@ A modern, responsive personal portfolio website built with HTML, CSS, and JavaSc
 
 ## 🧰 Tech Stack
 
-| Area        | Technologies Used         |
-|-------------|----------------------------|
-| Frontend    | HTML5, CSS3, JavaScript ES6 |
-| Styling     | Modular CSS (component-based) |
-| Animation   | JavaScript + CSS Keyframes |
-| Deployment  | Render.com |
+| Area       | Technologies Used             |
+| ---------- | ----------------------------- |
+| Frontend   | HTML5, CSS3, JavaScript ES6   |
+| Styling    | Modular CSS (component-based) |
+| Animation  | JavaScript + CSS Keyframes    |
+| Deployment | Render.com                    |
 
 ---
 
@@ -70,6 +70,7 @@ MY PORTFOLIO/
 ## 🛠️ How to Run Locally
 
 1. Clone the repo:
+
    ```
    git clone https://github.com/yourusername/portfolio.git
    cd portfolio
@@ -80,15 +81,16 @@ MY PORTFOLIO/
 3. Replace video files in `/assets/videos` or resume in `/assets/resume`.
 
 ---
+
 ## 🚀 Deployment
 
 This project is currently deployed on [Render](https://render.com).
 
 For your own deployment:
 
-* Push to GitHub
-* Connect repo to Render
-* Select Static Site, set `index.html` as root
+- Push to GitHub
+- Connect repo to Render
+- Select Static Site, set `index.html` as root
 
 ---
 
@@ -96,10 +98,10 @@ For your own deployment:
 
 **Aman Haris**
 
-* 📍 Bengaluru, India
-* 💼 AI | ML | GenAI Engineer
-* 📧 [amanharisofficial@protonmail.com](mailto:amanharisofficial@protonmail.com)
-* 🌐 [LinkedIn](https://linkedin.com/in/amanharis)
+- 📍 Bengaluru, India
+- 💼 AI | ML | GenAI Engineer
+- 📧 [amanharisofficial@protonmail.com](mailto:amanharisofficial@protonmail.com)
+- 🌐 [LinkedIn](https://linkedin.com/in/amanharis)
 
 ---
 
