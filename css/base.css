@@ -23,6 +23,10 @@ body {
   overflow-x: hidden;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 /* ===========================
    Glass Card
    =========================== */
@@ -309,27 +313,22 @@ ul, ol {
 [data-theme="light"] .theme-toggle #moon-icon { color: var(--text-secondary); }
 [data-theme="light"] .theme-toggle #sun-icon  { color: var(--primary-accent); }
 
+/* ===========================
+   Focus states (keyboard nav)
+   =========================== */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.bento-card[data-expandable]:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--primary-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-md);
+}
+
 /* Small button variant */
 .btn-sm {
   padding: var(--space-1) var(--space-3);
   font-size: var(--text-xs);
   border-radius: var(--radius-lg);
-}
-
-/* Site footer */
-.site-footer {
-  text-align: center;
-  padding: var(--space-4) var(--space-4);
-  color: var(--text-muted);
-  font-size: var(--text-xs);
-  border-top: 1px solid var(--glass-border);
-}
-
-.site-footer a {
-  color: var(--text-muted);
-  transition: color var(--transition-fast);
-}
-
-.site-footer a:hover {
-  color: var(--primary-accent);
 }

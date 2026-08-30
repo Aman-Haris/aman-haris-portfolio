@@ -100,6 +100,17 @@
   opacity: 0.8;
 }
 
+/* Font-icon fallback for brands with no Simple Icons entry (e.g. AWS) */
+.skill-icon-font {
+  display: inline-flex;
+  width: 14px;
+  font-size: 12px;
+  vertical-align: middle;
+  margin-right: var(--space-2);
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
 /* Dot-based skill levels */
 .skill-dots {
   font-size: 0.65rem;
@@ -153,7 +164,7 @@
 }
 
 .expert-dot       { background: var(--secondary-accent); }
-.advanced-dot     { background: rgba(6, 182, 212, 0.6); }
+.advanced-dot     { background: rgba(var(--cyan-rgb), 0.6); }
 .intermediate-dot { background: var(--text-muted); opacity: 0.7; }
 
 @media (max-width: 600px) {

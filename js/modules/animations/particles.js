@@ -15,12 +15,24 @@ class ParticleSystem {
         this.canvas = document.querySelector(canvasSelector);
         if (!this.canvas) return;
 
+        this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        this.paused = document.hidden;
+        this.frameId = null;
+
         this.initCanvas();
         this.initConfig();
         this.initParticles();
-        this.initMouseListeners();   // called once
-        this.initResizeListener();   // called once
-        this.startAnimation();
+        this.initMouseListeners();     // called once
+        this.initResizeListener();     // called once
+        this.initVisibilityListener(); // called once
+
+        if (this.reducedMotion) {
+            // Draw a single static frame instead of animating.
+            this.updateParticles();
+            this.drawConnections();
+        } else {
+            this.startAnimation();
+        }
     }
 
     initCanvas() {
@@ -107,15 +119,29 @@ class ParticleSystem {
         });
     }
 
+    // Visibility listener — called exactly once in constructor
+    initVisibilityListener() {
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                this.paused = true;
+                if (this.frameId) cancelAnimationFrame(this.frameId);
+            } else if (!this.reducedMotion) {
+                this.paused = false;
+                this.startAnimation();
+            }
+        });
+    }
+
     startAnimation() {
         const animate = () => {
+            if (this.paused) return;
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.updateParticles();
             this.drawConnections();
             if (this.mouse.active && window.innerWidth >= 600) {
                 this.drawMouseEffects();
             }
-            requestAnimationFrame(animate);
+            this.frameId = requestAnimationFrame(animate);
         };
         animate();
     }

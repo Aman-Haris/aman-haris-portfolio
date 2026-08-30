@@ -186,8 +186,24 @@
   left: -9999px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1024px) {
   .contact-expanded-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ===========================
+   Form utility states
+   =========================== */
+
+.honeypot-field {
+  display: none !important;
+}
+
+.loading-icon {
+  display: none;
+}
+
+.loading-icon.is-visible {
+  display: inline-block;
 }
