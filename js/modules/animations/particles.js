@@ -1,16 +1,20 @@
 /**
  * particles.js
- * Canvas particle system for the hero bento card.
+ * Neural-network canvas visualization for the About bento card —
+ * layered nodes with edges between adjacent layers, and periodic
+ * "signal" pulses traveling through the network to simulate inference.
  *
- * Bug fixes applied:
- * - Split initEventListeners into initMouseListeners + initResizeListener
- *   so resize handler never re-registers the mouse/resize listeners.
- * - Canvas resizes to parent card dimensions, not full viewport.
- * - Updated colors to match new design palette.
- * - Reduced particle counts to avoid frame drops.
+ * Canvas has pointer-events: none (see bento.css), so no mouse interactivity.
  */
 
-class ParticleSystem {
+const LAYER_COLORS = [
+    'rgba(6, 182, 212, 0.9)',   // input layer — cyan
+    'rgba(124, 58, 237, 0.9)',  // hidden layers — violet
+    'rgba(124, 58, 237, 0.9)',
+    'rgba(245, 158, 11, 0.9)',  // output layer — amber
+];
+
+class NeuralNetSystem {
     constructor(canvasSelector) {
         this.canvas = document.querySelector(canvasSelector);
         if (!this.canvas) return;
@@ -18,19 +22,18 @@ class ParticleSystem {
         this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         this.paused = document.hidden;
         this.frameId = null;
+        this.spawnIntervalId = null;
+        this.pulses = [];
 
         this.initCanvas();
-        this.initConfig();
-        this.initParticles();
-        this.initMouseListeners();     // called once
-        this.initResizeListener();     // called once
-        this.initVisibilityListener(); // called once
+        this.initLayout();
+        this.initResizeListener();
+        this.initVisibilityListener();
 
         if (this.reducedMotion) {
-            // Draw a single static frame instead of animating.
-            this.updateParticles();
-            this.drawConnections();
+            this.drawFrame(); // single static frame, no pulses, no spawn loop
         } else {
+            this.startSpawning();
             this.startAnimation();
         }
     }
@@ -41,68 +44,50 @@ class ParticleSystem {
         this.resizeCanvas();
     }
 
-    initConfig() {
-        this.config = {
-            particleCount:       this.calculateParticleCount(),
-            particleColor:       'rgba(124, 58, 237, 0.8)',
-            lineColor:           'rgba(6, 182, 212, 0.4)',
-            particleRadius:      2,
-            lineWidth:           1,
-            mouseRadius:         150,
-            particleSpeed:       0.4,
-            particleOpacityBase: 0.85,
-            lineOpacityBase:     0.5,
-            defaultLineDistance: 90
-        };
-    }
-
-    calculateParticleCount() {
+    layerSizesForWidth() {
         const w = window.innerWidth;
-        if (w > 1279) return 120;
-        if (w > 600)  return 80;
-        if (w > 359)  return 40;
-        return 25;
+        if (w > 1279) return [4, 6, 6, 3];
+        if (w > 600)  return [3, 5, 5, 2];
+        return [3, 4, 2];
     }
 
-    initParticles() {
+    // Build node grid (layers x positions) and adjacent-layer edges.
+    initLayout() {
         const w = this.canvas.width  / this.pixelRatio;
         const h = this.canvas.height / this.pixelRatio;
-        this.particles = Array.from({ length: this.config.particleCount }, () => ({
-            x:      Math.random() * w,
-            y:      Math.random() * h,
-            vx:     (Math.random() - 0.5) * this.config.particleSpeed,
-            vy:     (Math.random() - 0.5) * this.config.particleSpeed,
-            radius: Math.random() * this.config.particleRadius + 1
-        }));
-    }
+        const layerSizes = this.layerSizesForWidth();
+        const padX = w * 0.12;
+        const padY = h * 0.15;
 
-    // Mouse listeners — called exactly once in constructor
-    initMouseListeners() {
-        this.mouse = {
-            x:      this.canvas.width  / (2 * this.pixelRatio),
-            y:      this.canvas.height / (2 * this.pixelRatio),
-            active: false
-        };
-
-        if (window.innerWidth < 600) return;
-
-        this.throttleTimer = null;
-        document.addEventListener('mousemove', e => {
-            if (this.throttleTimer) return;
-            this.throttleTimer = setTimeout(() => {
-                const rect = this.canvas.getBoundingClientRect();
-                this.mouse.x = e.clientX - rect.left;
-                this.mouse.y = e.clientY - rect.top;
-                this.mouse.active = true;
-                this.throttleTimer = null;
-            }, 16); // ~60fps
-        });
-
-        document.addEventListener('mouseout', e => {
-            if (!e.relatedTarget || e.relatedTarget.nodeName === 'HTML') {
-                this.mouse.active = false;
+        this.nodes = [];
+        layerSizes.forEach((count, layerIndex) => {
+            const x = layerSizes.length === 1
+                ? w / 2
+                : padX + (layerIndex / (layerSizes.length - 1)) * (w - padX * 2);
+            for (let i = 0; i < count; i++) {
+                const y = count === 1
+                    ? h / 2
+                    : padY + (i / (count - 1)) * (h - padY * 2);
+                this.nodes.push({
+                    x,
+                    y: y + (Math.random() - 0.5) * 6,
+                    layer: layerIndex,
+                    color: LAYER_COLORS[layerIndex % LAYER_COLORS.length],
+                    lastPulseTime: 0,
+                });
             }
         });
+
+        this.edges = [];
+        for (let l = 0; l < layerSizes.length - 1; l++) {
+            const fromNodes = this.nodes.filter(n => n.layer === l);
+            const toNodes   = this.nodes.filter(n => n.layer === l + 1);
+            fromNodes.forEach(a => {
+                toNodes.forEach(b => this.edges.push({ a, b }));
+            });
+        }
+
+        this.pulses = [];
     }
 
     // Resize listener — called exactly once in constructor
@@ -112,9 +97,8 @@ class ParticleSystem {
             clearTimeout(this.resizeTimer);
             this.resizeTimer = setTimeout(() => {
                 this.resizeCanvas();
-                this.config.particleCount = this.calculateParticleCount();
-                this.initParticles();
-                // Do NOT call initMouseListeners or initResizeListener here
+                this.initLayout();
+                if (this.reducedMotion) this.drawFrame();
             }, 200);
         });
     }
@@ -125,115 +109,102 @@ class ParticleSystem {
             if (document.hidden) {
                 this.paused = true;
                 if (this.frameId) cancelAnimationFrame(this.frameId);
+                if (this.spawnIntervalId) clearInterval(this.spawnIntervalId);
             } else if (!this.reducedMotion) {
                 this.paused = false;
+                this.startSpawning();
                 this.startAnimation();
             }
         });
     }
 
+    startSpawning() {
+        if (this.spawnIntervalId) clearInterval(this.spawnIntervalId);
+        this.spawnIntervalId = setInterval(() => this.spawnPulses(), 700);
+    }
+
+    spawnPulses() {
+        if (!this.edges.length) return;
+        const count = 1 + Math.floor(Math.random() * 2);
+        for (let i = 0; i < count; i++) {
+            const edge = this.edges[Math.floor(Math.random() * this.edges.length)];
+            this.pulses.push({ edge, progress: 0, speed: 0.015 + Math.random() * 0.01 });
+        }
+    }
+
     startAnimation() {
         const animate = () => {
             if (this.paused) return;
-            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            this.updateParticles();
-            this.drawConnections();
-            if (this.mouse.active && window.innerWidth >= 600) {
-                this.drawMouseEffects();
-            }
+            this.drawFrame();
+            this.updatePulses();
             this.frameId = requestAnimationFrame(animate);
         };
         animate();
     }
 
-    updateParticles() {
-        const w = this.canvas.width  / this.pixelRatio;
-        const h = this.canvas.height / this.pixelRatio;
-        this.particles.forEach(p => {
-            p.x += p.vx;
-            p.y += p.vy;
-            if (p.x < 0 || p.x > w) p.vx *= -1;
-            if (p.y < 0 || p.y > h) p.vy *= -1;
-            this.drawParticle(p);
+    updatePulses() {
+        const now = performance.now();
+        this.pulses = this.pulses.filter(p => {
+            p.progress += p.speed;
+            if (p.progress >= 1) {
+                p.edge.b.lastPulseTime = now;
+                return false;
+            }
+            return true;
         });
     }
 
-    drawParticle(p) {
-        const dx = this.mouse.x - p.x;
-        const dy = this.mouse.y - p.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        const opacity = this.mouse.active && window.innerWidth >= 600
-            ? Math.min(this.config.particleOpacityBase,
-                this.config.particleOpacityBase * (1 - distance / this.config.mouseRadius))
-            : this.config.particleOpacityBase * 0.6;
-
-        this.ctx.beginPath();
-        this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        this.ctx.fillStyle = `rgba(124, 58, 237, ${Math.max(0.2, opacity)})`;
-        this.ctx.fill();
+    drawFrame() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.drawEdges();
+        this.drawPulses();
+        this.drawNodes();
     }
 
-    drawConnections() {
-        const maxDist = this.mouse.active && window.innerWidth >= 600
-            ? this.config.mouseRadius
-            : this.config.defaultLineDistance;
-
-        for (let i = 0; i < this.particles.length; i++) {
-            for (let j = i + 1; j < this.particles.length; j++) {
-                const p1 = this.particles[i];
-                const p2 = this.particles[j];
-                const dx = p1.x - p2.x;
-                const dy = p1.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < maxDist) {
-                    this.drawConnectionLine(p1, p2, dist, maxDist);
-                }
-            }
-        }
-    }
-
-    drawConnectionLine(p1, p2, dist, maxDist) {
-        let opacity;
-        if (this.mouse.active && window.innerWidth >= 600) {
-            const md1 = Math.sqrt((p1.x - this.mouse.x) ** 2 + (p1.y - this.mouse.y) ** 2);
-            const md2 = Math.sqrt((p2.x - this.mouse.x) ** 2 + (p2.y - this.mouse.y) ** 2);
-            if (md1 < this.config.mouseRadius || md2 < this.config.mouseRadius) {
-                opacity = this.config.lineOpacityBase * (1 - dist / maxDist);
-                this.drawLine(p1, p2, opacity, this.config.lineWidth);
-            }
-        } else {
-            opacity = this.config.lineOpacityBase * 0.3 * (1 - dist / maxDist);
-            this.drawLine(p1, p2, opacity, this.config.lineWidth * 0.7);
-        }
-    }
-
-    drawLine(p1, p2, opacity, width) {
-        this.ctx.beginPath();
-        this.ctx.moveTo(p1.x, p1.y);
-        this.ctx.lineTo(p2.x, p2.y);
-        this.ctx.strokeStyle = `rgba(6, 182, 212, ${Math.max(0.04, opacity)})`;
-        this.ctx.lineWidth = width;
-        this.ctx.stroke();
-    }
-
-    drawMouseEffects() {
-        this.ctx.beginPath();
-        this.ctx.arc(this.mouse.x, this.mouse.y, this.config.particleRadius * 2, 0, Math.PI * 2);
-        this.ctx.fillStyle = 'rgba(124, 58, 237, 0.9)';
-        this.ctx.fill();
-
-        this.particles.forEach(p => {
-            const dx = this.mouse.x - p.x;
-            const dy = this.mouse.y - p.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < this.config.mouseRadius) {
-                const opacity = this.config.lineOpacityBase * (1 - dist / this.config.mouseRadius);
-                this.drawLine({ x: this.mouse.x, y: this.mouse.y }, p, opacity, this.config.lineWidth);
-            }
+    drawEdges() {
+        this.ctx.lineWidth = 1;
+        this.ctx.strokeStyle = 'rgba(124, 58, 237, 0.15)';
+        this.edges.forEach(({ a, b }) => {
+            this.ctx.beginPath();
+            this.ctx.moveTo(a.x, a.y);
+            this.ctx.lineTo(b.x, b.y);
+            this.ctx.stroke();
         });
     }
 
-    // Resize canvas to fill the hero card (parent element)
+    drawPulses() {
+        this.pulses.forEach(({ edge, progress }) => {
+            const x = edge.a.x + (edge.b.x - edge.a.x) * progress;
+            const y = edge.a.y + (edge.b.y - edge.a.y) * progress;
+            this.ctx.beginPath();
+            this.ctx.arc(x, y, 2.5, 0, Math.PI * 2);
+            this.ctx.fillStyle = 'rgba(245, 158, 11, 0.95)';
+            this.ctx.fill();
+        });
+    }
+
+    drawNodes() {
+        const now = performance.now();
+        this.nodes.forEach(node => {
+            const sinceGlow = now - node.lastPulseTime;
+            const glow = sinceGlow < 400 ? 1 - sinceGlow / 400 : 0;
+            const radius = 3 + glow * 2.5;
+
+            if (glow > 0) {
+                this.ctx.beginPath();
+                this.ctx.arc(node.x, node.y, radius + 4, 0, Math.PI * 2);
+                this.ctx.fillStyle = `rgba(245, 158, 11, ${glow * 0.35})`;
+                this.ctx.fill();
+            }
+
+            this.ctx.beginPath();
+            this.ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
+            this.ctx.fillStyle = node.color;
+            this.ctx.fill();
+        });
+    }
+
+    // Resize canvas to fill the About card (parent element)
     resizeCanvas() {
         const parent = this.canvas.parentElement;
         const w = parent ? parent.offsetWidth  : window.innerWidth;
@@ -243,14 +214,14 @@ class ParticleSystem {
         this.canvas.height = h * this.pixelRatio;
         this.canvas.style.width  = `${w}px`;
         this.canvas.style.height = `${h}px`;
-        this.ctx.scale(this.pixelRatio, this.pixelRatio);
+        this.ctx.setTransform(this.pixelRatio, 0, 0, this.pixelRatio, 0, 0);
     }
 }
 
 export function initCanvasParticles() {
     try {
-        new ParticleSystem('.connecting-dots');
+        new NeuralNetSystem('.connecting-dots');
     } catch (err) {
-        console.error('Particle system error:', err);
+        console.error('Neural net visualization error:', err);
     }
 }

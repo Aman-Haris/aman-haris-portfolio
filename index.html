@@ -55,6 +55,7 @@
     <link rel="stylesheet" href="css/projects.css">
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/ask.css">
     <link rel="stylesheet" href="css/animations.css">
 
     <!-- Font Awesome -->
@@ -117,6 +118,9 @@
                     <a href="https://linkedin.com/in/aman-haris" target="_blank" rel="noopener" aria-label="LinkedIn"><i aria-hidden="true" class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/aman-haris" target="_blank" rel="noopener" aria-label="GitHub"><i aria-hidden="true" class="fab fa-github"></i></a>
                     <a href="mailto:amanharisofficial@protonmail.com" aria-label="Email"><i aria-hidden="true" class="fas fa-envelope"></i></a>
+                </div>
+                <div class="about-terminal" aria-hidden="true">
+                    <span class="about-terminal-line"></span><span class="about-terminal-cursor">_</span>
                 </div>
             </div>
         </div>
@@ -266,6 +270,13 @@
                 <p>11 professional &nbsp;·&nbsp; 7 personal</p>
             </div>
             <span class="all-projects-arrow">↗</span>
+        </div>
+
+        <!-- ASK AMAN -->
+        <div class="bento-card card-ask glass-card" data-expandable data-target="expand-ask" role="button" tabindex="0" aria-label="Ask Aman anything — click to expand">
+            <i aria-hidden="true" class="fas fa-terminal ask-icon"></i>
+            <p class="ask-title">Ask Aman<span class="ask-cursor">_</span></p>
+            <p class="ask-sub">Try me.</p>
         </div>
 
         <!-- CONTACT -->
@@ -1043,6 +1054,29 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </template>
+
+    <!-- Ask Aman expanded -->
+    <template id="expand-ask">
+        <div class="expanded-ask">
+            <h2 class="expanded-title">Ask Aman</h2>
+            <p class="expanded-subtitle">A scripted FAQ bot — no live AI calls, just canned answers. Try a chip or type your own.</p>
+            <div class="ask-chat-log" id="ask-chat-log" aria-live="polite">
+                <div class="ask-message ask-message-bot">
+                    <span class="ask-message-text">Hey, I'm a scripted stand-in for Aman. Ask about skills, my current role, projects, or how to get in touch.</span>
+                </div>
+            </div>
+            <div class="ask-chip-row" id="ask-chip-row"></div>
+            <form class="ask-input-row" id="ask-form">
+                <div class="form-group floating">
+                    <input type="text" id="ask-input" name="ask-input" placeholder=" " autocomplete="off">
+                    <label for="ask-input">Ask something…</label>
+                </div>
+                <button type="submit" class="btn primary-btn" aria-label="Send">
+                    <i aria-hidden="true" class="fas fa-paper-plane"></i>
+                </button>
+            </form>
         </div>
     </template>
 

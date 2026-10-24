@@ -1,0 +1,127 @@
+/* ===========================
+   Ask Aman — Bento Card Teaser
+   =========================== */
+
+.card-ask {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  text-align: center;
+}
+
+.ask-icon {
+  font-size: var(--text-2xl);
+  color: var(--primary-accent);
+}
+
+.ask-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.ask-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ask-cursor {
+    animation: none;
+  }
+}
+
+.ask-sub {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ===========================
+   Ask Aman — Expanded Chat Modal
+   =========================== */
+
+.expanded-ask {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.ask-chat-log {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-height: 320px;
+  overflow-y: auto;
+  padding: var(--space-3);
+  background: var(--secondary-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-accent) var(--card-bg);
+}
+
+.ask-message {
+  max-width: 85%;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.ask-message-bot {
+  align-self: flex-start;
+  background: var(--accent-bg-subtle);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+}
+
+.ask-message-user {
+  align-self: flex-end;
+  background: var(--primary-accent);
+  color: #fff;
+}
+
+.ask-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.ask-chip {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--accent-bg-subtle);
+  border: 1px solid var(--glass-border);
+  color: var(--primary-accent);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.ask-chip:hover {
+  background: var(--accent-bg-hover);
+  border-color: var(--primary-accent);
+  color: var(--text-primary);
+}
+
+.ask-input-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.ask-input-row .form-group {
+  flex: 1;
+  margin: 0;
+}
+
+.ask-input-row .btn {
+  height: 46px;
+  flex-shrink: 0;
+}

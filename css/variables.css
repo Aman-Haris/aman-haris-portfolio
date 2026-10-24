@@ -18,6 +18,26 @@
   font-size: 100%;
 }
 
+@font-face {
+  font-family: 'JetBrainsMono-Regular';
+  src: url('/assets/fonts/JetBrainsMono_Complete/Fonts/WEB/fonts/JetBrainsMono-Regular.woff2') format('woff2'),
+       url('/assets/fonts/JetBrainsMono_Complete/Fonts/WEB/fonts/JetBrainsMono-Regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+  font-size: 100%;
+}
+
+@font-face {
+  font-family: 'JetBrainsMono-Medium';
+  src: url('/assets/fonts/JetBrainsMono_Complete/Fonts/WEB/fonts/JetBrainsMono-Medium.woff2') format('woff2'),
+       url('/assets/fonts/JetBrainsMono_Complete/Fonts/WEB/fonts/JetBrainsMono-Medium.woff') format('woff');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+  font-size: 100%;
+}
+
 :root {
   /* Dark Mode Colors */
   --primary-bg:   #070b14;
@@ -57,6 +77,7 @@
   /* Typography */
   --font-heading: 'Chillax-Semibold', sans-serif;
   --font-body: 'Nunito-Regular', sans-serif;
+  --font-mono: 'JetBrainsMono-Regular', 'JetBrainsMono-Medium', monospace;
 
   --text-xs:   0.75rem;   /* 12px */
   --text-sm:   0.875rem;  /* 14px */

@@ -326,6 +326,11 @@ summary:focus-visible {
   border-radius: var(--radius-md);
 }
 
+/* Monospace utility — data/code accents */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
 /* Small button variant */
 .btn-sm {
   padding: var(--space-1) var(--space-3);

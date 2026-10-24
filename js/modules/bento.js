@@ -17,6 +17,7 @@ export function initBento() {
   if (!overlay || !modalBody || !closeBtn) return;
 
   let lastFocusedEl = null;
+  let currentTargetId = null;
 
   // ─── Clear modal body safely ───────────────────────────────────────────────
   function clearModal() {
@@ -46,6 +47,7 @@ export function initBento() {
   function openTemplate(targetId, triggerEl) {
     const template = document.getElementById(targetId);
     if (!template) return;
+    currentTargetId = targetId;
     clearModal();
     modalBody.appendChild(template.content.cloneNode(true));
     overlay.hidden = false;
@@ -56,12 +58,15 @@ export function initBento() {
     // Wire up contact form char counter if present
     wireCharCounter();
     wireContactForm();
+    modalBody.dispatchEvent(new CustomEvent('template:mounted', { bubbles: true, detail: { targetId } }));
   }
 
   // ─── Close the modal ──────────────────────────────────────────────────────
   function closeModal() {
+    modalBody.dispatchEvent(new CustomEvent('template:unmounted', { bubbles: true, detail: { targetId: currentTargetId } }));
     overlay.hidden = true;
     clearModal();
+    currentTargetId = null;
     document.body.classList.remove('modal-open');
     if (main) main.removeAttribute('inert');
     if (lastFocusedEl) lastFocusedEl.focus();
