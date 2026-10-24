@@ -7,6 +7,7 @@
             var stored = localStorage.getItem('theme');
             var theme = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
             document.documentElement.setAttribute('data-theme', theme);
+            document.documentElement.classList.add('js');
         })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,12 +25,12 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Aman Haris | AI/ML Engineer">
     <meta property="og:description" content="AI/ML Engineer & Software Developer Portfolio — GenAI, RAG, and automation tools shipped in production.">
-    <meta property="og:image" content="assets/images/test.jpeg">
+    <meta property="og:image" content="https://aman-haris-portfolio.onrender.com/assets/images/profile.jpeg">
     <meta property="og:url" content="https://aman-haris-portfolio.onrender.com/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Aman Haris | AI/ML Engineer">
     <meta name="twitter:description" content="AI/ML Engineer & Software Developer Portfolio — GenAI, RAG, and automation tools shipped in production.">
-    <meta name="twitter:image" content="assets/images/test.jpeg">
+    <meta name="twitter:image" content="https://aman-haris-portfolio.onrender.com/assets/images/profile.jpeg">
 
     <script type="application/ld+json">
     {
@@ -85,10 +86,8 @@
         <!-- ABOUT (featured 2×2) -->
         <div class="bento-card card-about glass-card" data-expandable data-target="expand-about" role="button" tabindex="0" aria-label="About Me — click to expand">
             <canvas class="connecting-dots"></canvas>
-            <div class="about-photo-wrap" title="Click to flip">
-                <img src="assets/images/test.jpeg" alt="Aman Haris" class="about-photo is-active">
-                <img src="assets/images/aman-casual.jpg" alt="Aman Haris casual" class="about-photo is-casual">
-                <span class="about-photo-hint">flip</span>
+            <div class="about-photo-wrap">
+                <img src="assets/images/profile.jpeg" alt="Aman Haris" class="about-photo is-active">
             </div>
             <div class="about-body">
                 <div>
@@ -172,7 +171,7 @@
                     <span class="tool-name">React</span>
                 </div>
                 <div class="tool-item">
-                    <img src="assets/icons/openai.png" alt="OpenAI" loading="lazy" width="22" height="22" class="tool-icon">
+                    <img src="assets/icons/openai.png" alt="OpenAI" loading="lazy" width="22" height="22" class="tool-icon tool-icon-placeholder">
                     <span class="tool-name">OpenAI</span>
                 </div>
                 <div class="tool-item">
@@ -180,7 +179,7 @@
                     <span class="tool-name">Streamlit</span>
                 </div>
                 <div class="tool-item">
-                    <img src="https://cdn.simpleicons.org/github" alt="GitHub" loading="lazy" width="22" height="22" class="tool-icon">
+                    <img src="https://cdn.simpleicons.org/github" alt="GitHub" loading="lazy" width="22" height="22" class="tool-icon tool-icon-placeholder">
                     <span class="tool-name">GitHub</span>
                 </div>
                 <div class="tool-item">
@@ -224,16 +223,16 @@
             </div>
         </div>
 
-        <!-- PROJECT CARD 1: Resume Analysis Tool (NDA) -->
-        <div class="bento-card card-p1 card-project glass-card" data-expandable data-target="expand-p5" role="button" tabindex="0" aria-label="Resume Analysis Tool project — click to expand">
-            <p class="project-card-icon">📄</p>
-            <h3 class="project-card-title">Resume Analysis Tool</h3>
-            <p class="project-card-desc">AI-powered ATS platform with deterministic JD-matching, an async SQS worker queue, and live progress tracking.</p>
-            <span class="project-card-metric">70k+ resumes analyzed</span>
+        <!-- PROJECT CARD 1: Tessa Embedded Bot (NDA source, public site) -->
+        <div class="bento-card card-p1 card-project glass-card" data-expandable data-target="expand-p16" role="button" tabindex="0" aria-label="Tessa Embedded Bot project — click to expand">
+            <p class="project-card-icon">🎧</p>
+            <h3 class="project-card-title">Tessa Embedded Bot</h3>
+            <p class="project-card-desc">AI front-desk assistant for the Embedded micro-website — RAG Q&amp;A, guided service requests, and career applications.</p>
+            <span class="project-card-metric is-live">Live at embedded.tessolve.com</span>
             <div class="project-card-tags">
                 <span class="tech-tag">GenAI</span>
+                <span class="tech-tag">RAG</span>
                 <span class="tech-tag">AWS</span>
-                <span class="tech-tag">Python</span>
             </div>
         </div>
 
@@ -316,7 +315,7 @@
     <template id="expand-about">
         <div class="expanded-about">
             <div class="expanded-header">
-                <img src="assets/images/test.jpeg" alt="Aman Haris" loading="lazy" width="72" height="72" class="expanded-avatar">
+                <img src="assets/images/profile.jpeg" alt="Aman Haris" loading="lazy" width="72" height="72" class="expanded-avatar">
                 <div>
                     <h2 class="expanded-title">Aman Haris</h2>
                     <p class="expanded-subtitle">AI / ML / GenAI Engineer · Bengaluru, India</p>
@@ -878,7 +877,12 @@
                 <span class="tech-tag">AWS Comprehend</span>
                 <span class="tech-tag">Python</span>
             </div>
-            <p class="nda-note"><i aria-hidden="true" class="fas fa-info-circle"></i> Source code and live demo are under NDA.</p>
+            <div class="expanded-links">
+                <a href="https://embedded.tessolve.com/" class="btn primary-btn" target="_blank" rel="noopener">
+                    <i aria-hidden="true" class="fas fa-arrow-up-right-from-square"></i> Visit embedded.tessolve.com
+                </a>
+            </div>
+            <p class="nda-note"><i aria-hidden="true" class="fas fa-info-circle"></i> Source code is under NDA.</p>
         </div>
     </template>
 

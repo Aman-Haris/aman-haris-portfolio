@@ -105,7 +105,7 @@ export function initBento() {
 
   // ─── About photo flip ─────────────────────────────────────────────────────
   const photoWrap = document.querySelector('.about-photo-wrap');
-  if (photoWrap) {
+  if (photoWrap && photoWrap.querySelector('.is-casual')) {
     photoWrap.addEventListener('click', e => {
       e.stopPropagation(); // don't also open the about modal
       photoWrap.classList.toggle('flipped');
@@ -128,6 +128,17 @@ export function initBento() {
   document.querySelectorAll('.bento-card').forEach(card => {
     entranceObserver.observe(card);
   });
+
+  // ─── Cursor spotlight (feeds --mx/--my to the card border gradient) ───────
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.bento-card[data-expandable]').forEach(card => {
+      card.addEventListener('pointermove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+      });
+    });
+  }
 }
 
 // ─── Contact form char counter ───────────────────────────────────────────────

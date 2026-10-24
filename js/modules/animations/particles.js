@@ -8,7 +8,7 @@
  */
 
 const LAYER_COLORS = [
-    'rgba(6, 182, 212, 0.9)',   // input layer — cyan
+    'rgba(167, 139, 250, 0.9)', // input layer — light violet
     'rgba(124, 58, 237, 0.9)',  // hidden layers — violet
     'rgba(124, 58, 237, 0.9)',
     'rgba(245, 158, 11, 0.9)',  // output layer — amber

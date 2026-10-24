@@ -21,6 +21,15 @@
   100% { box-shadow: var(--glow-subtle); }
 }
 
+/* Failsafe: if the entrance observer never runs, reveal cards anyway */
+@keyframes cardReveal {
+  to { opacity: 1; translate: 0 0; }
+}
+
+.js .bento-card:not(.visible) {
+  animation: cardReveal 0.01s 2.5s forwards;
+}
+
 /* ===========================
    Modal entrance
    =========================== */
@@ -67,9 +76,10 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: var(--primary-accent);
-  box-shadow: 0 0 0 2px var(--accent-bg-hover);
-  outline: none;
+  border-color: var(--focus-ring);
+  box-shadow: 0 0 0 3px var(--accent-bg-hover);
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 1px;
 }
 
 /* ===========================
